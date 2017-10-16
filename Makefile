@@ -1,101 +1,208 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: suddin <suddin@student.42.fr>              +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/04/17 02:38:27 by suddin            #+#    #+#              #
-#    Updated: 2017/05/18 01:03:09 by suddin           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-NAME = libft.a
-
-SRC  = 	ft_bzero.c		\
-		ft_memset.c		\
-		ft_memcpy.c		\
-		ft_memccpy.c	\
-		ft_memmove.c	\
-		ft_memchr.c		\
-		ft_memcmp.c		\
-		ft_strlen.c		\
-		ft_strdup.c		\
-		ft_strcpy.c		\
-		ft_strncpy.c	\
-		ft_strcat.c		\
-		ft_strncat.c	\
-		ft_strlcat.c	\
-		ft_strchr.c		\
-		ft_strrchr.c	\
-		ft_strstr.c		\
-		ft_strnstr.c	\
-		ft_strcmp.c		\
-		ft_strncmp.c	\
-		ft_atoi.c		\
-		ft_isalpha.c	\
-		ft_isdigit.c	\
-		ft_isalnum.c	\
-		ft_isascii.c	\
-		ft_isprint.c	\
-		ft_toupper.c	\
-		ft_tolower.c	\
-		ft_memalloc.c	\
-		ft_memdel.c		\
-		ft_strnew.c		\
-		ft_strdel.c		\
-		ft_strclr.c		\
-		ft_striter.c	\
-		ft_striteri.c	\
-		ft_strmap.c		\
-		ft_strmapi.c	\
-		ft_strequ.c		\
-		ft_strnequ.c	\
-		ft_strsub.c		\
-		ft_strjoin.c	\
-		ft_strtrim.c	\
-		ft_strsplit.c	\
-		ft_itoa.c		\
-		ft_putchar.c	\
-		ft_putstr.c		\
-		ft_putendl.c	\
-		ft_putnbr.c		\
-		ft_putchar_fd.c	\
-		ft_putstr_fd.c	\
-		ft_putendl_fd.c	\
-		ft_putnbr_fd.c	\
-		ft_lstnew.c		\
-		ft_lstdelone.c	\
-		ft_lstdel.c		\
-		ft_lstadd.c		\
-		ft_lstiter.c	\
-		ft_lstmap.c		\
-		ft_strrev.c		\
-		ft_intlen.c		\
-		ft_abs.c		\
-		ft_strresize.c	\
-		ft_strrem.c		\
-		ft_sqrt.c		\
-		ft_putnbrendl.c	\
-		ft_chrindex.c	\
-		ft_chrindexi.c	\
-		ft_strjoini.c	\
-		ft_strchri.c
+###############################################################################
+##                                                                           ##
+##  This is a generalized makefiles made to be used on different kind        ##
+##  of projects, such as making libraries , source files etc.                ##
+##  Please note that to use this make files you need to posses the `.misc`   ##
+##  directory that is included in the repo by default. This path is needed   ##
+##  as some files used by make files are included there. Do change anything  ##
+##  dependeing on your need.                                                 ##
+##                                                                           ##
+##  In the file `color` located in `.misc/make` you can find terminal escape ##
+##  codes for colors arr or remove or eddid to get result as you want.       ##
+##                                                                           ##
+##                                                                           ##
+##  In the file `path` located in `.misc/make` information about varius paths##
+##  are included for to make this Makefile easier and to manage the make file##
+##  More easily.                                                             ##
+##                                                                           ##
+###############################################################################
 
 
-TOO := $(SRC:.c=.o)
+## Please do not remove the includes
+## as they contain impoirtent information
+## variables and rules
+
+include .misc/make/color
+include .misc/make/paths
+include .misc/make/misc_var
+
+## Te `.SILENT` launche evrything specified in
+## silent mode so you dont have to put the `@`
+.SILENT	: __START	NAME	clean fclean all re object library os_dep
+.PHONY	: __START			clean fclean all re object library os_dep
+
+
+## This is launched if no param given
+.DEFAULT_GOAL = __START
+
+## Project name (will be used)
+PROJECT	=	LIBFT
+
+## compiler related
+CC		?=	clang 		## default compiler is clang
+CC_FLAG ?=	-Werror \
+			-Wall	\
+			-Wextra
+
+## some useful `flags` for memory verifications
+##
+## -O1 -g -fsanitize=address	\
+## -fno-omit-frame-pointer		\
+## -fsanitize-address-use-after-scope \
+
+INCLUDE = include
+
+## binary, library etc...
+MAIN	?=	main.c
+NAME	?=	libft.a 		## The name of your binary
+
+#The name of the library you want to make
+LIB_A	?=	libft.a
+
+
+## sources and objects where path names are removed.
+## Add all your source files to this variable
+SRC		=	src/ft_bzero.c		\
+			src/ft_memset.c		\
+			src/ft_memcpy.c		\
+			src/ft_memccpy.c	\
+			src/ft_memmove.c	\
+			src/ft_memchr.c		\
+			src/ft_memcmp.c		\
+			src/ft_strlen.c		\
+			src/ft_strdup.c		\
+			src/ft_strcpy.c		\
+			src/ft_strncpy.c	\
+			src/ft_strcat.c		\
+			src/ft_strncat.c	\
+			src/ft_strlcat.c	\
+			src/ft_strchr.c		\
+			src/ft_strrchr.c	\
+			src/ft_strstr.c		\
+			src/ft_strnstr.c	\
+			src/ft_strcmp.c		\
+			src/ft_strncmp.c	\
+			src/ft_atoi.c		\
+			src/ft_isalpha.c	\
+			src/ft_isdigit.c	\
+			src/ft_isalnum.c	\
+			src/ft_isascii.c	\
+			src/ft_isprint.c	\
+			src/ft_toupper.c	\
+			src/ft_tolower.c	\
+			src/ft_memalloc.c	\
+			src/ft_memdel.c		\
+			src/ft_strnew.c		\
+			src/ft_strdel.c		\
+			src/ft_strclr.c		\
+			src/ft_striter.c	\
+			src/ft_striteri.c	\
+			src/ft_strmap.c		\
+			src/ft_strmapi.c	\
+			src/ft_strequ.c		\
+			src/ft_strnequ.c	\
+			src/ft_strsub.c		\
+			src/ft_strjoin.c	\
+			src/ft_strtrim.c	\
+			src/ft_strsplit.c	\
+			src/ft_itoa.c		\
+			src/ft_putchar.c	\
+			src/ft_putstr.c		\
+			src/ft_putendl.c	\
+			src/ft_putnbr.c		\
+			src/ft_putchar_fd.c	\
+			src/ft_putstr_fd.c	\
+			src/ft_putendl_fd.c	\
+			src/ft_putnbr_fd.c	\
+			src/ft_lstnew.c		\
+			src/ft_lstdelone.c	\
+			src/ft_lstdel.c		\
+			src/ft_lstadd.c		\
+			src/ft_lstiter.c	\
+			src/ft_lstmap.c		\
+			src/ft_strrev.c		\
+			src/ft_intlen.c		\
+			src/ft_abs.c		\
+			src/ft_strresize.c	\
+			src/ft_strrem.c		\
+			src/ft_sqrt.c		\
+			src/ft_putnbrendl.c	\
+			src/ft_chrindex.c	\
+			src/ft_chrindexi.c	\
+			src/ft_strjoini.c	\
+			src/ft_strchri.c
+
+## Objects without path names
+OBJ		:=	$(notdir $(SRC:.c=.o))
+
+## Objects with their path name
+OBJ_P	=	$(addprefix $(P_OBJ)/,$(OBJ))	## addprefix add the 
+											## path name to the files...
+## Start making here
+__START: os all
+	 printf "$(OK)[+][$(PROJECT)] Done $(C_DEF)"
 
 all: $(NAME)
 
-$(NAME):
-	@gcc -c -Werror -Wextra -Wall $(SRC)
-	@ar rc $(NAME) $(TOO)
-	@ranlib $(NAME)
+$(NAME): $(SRC)
+	@make library --no-print-directory	
 
-clean:
-	@rm -f $(TOO)
+## Clean objects and others
+clean:		
+	rm		-f	$(OBJ_P)
+	echo	-e	"$(WARN)[!][$(PROJECT)] Removed all objects from ./$(P_OBJ)$(C_DEF)"
+	echo	-e	"$(OK)[+][$(PROJECT)] Cleaned$(C_DEF)"
 
-fclean: clean
-	@rm -f $(NAME)
+## Cleans everything
+fclean:		clean
+	rm		-f	$(LIB_A)
+	echo	-e	"$(WARN)[!][$(PROJECT)] Removed $(LIB_A)$(C_DEF)"
+	echo	-e	"$(OK)[+][$(PROJECT)] Fully cleaned$(C_DEF)"
 
-re: fclean all
+re:			fclean $(NAME)
+
+## This function creat object files from sources.
+## It treates the string of large source names as
+## individual names, when it creat objects it do
+## not gives al the names in the same time to gcc
+## but one by one.
+object:		$(SRC) $(P_SRC) $(P_OBJ)
+	$(foreach SOURCE ,$(SRC), \
+		$(CC) $(CC_FLAG) -I$(INCLUDE) -c $(SOURCE) -o $(P_OBJ)/$(notdir $(SOURCE:.c=.o))	&& \
+		printf "$(OK)[+][$(PROJECT)] $(SOURCE)$(C_DEF)" && sleep $(SLEEP)	&& \
+		printf "\r\033[K" \
+	;)
+	echo 	-e "$(OK)[+][$(PROJECT)] Objects are made in ./$(P_OBJ)$(C_DEF)"
+
+## Make the actual library (archive)
+library:	object $(P_OBJ) $(OBJ_P)
+	echo 	-e "$(WARN)[!][$(PROJECT)] Creating archive $(LIB_A)$(C_DEF)"
+	@ar rc $(LIB_A) $(OBJ_P)
+	echo 	-e "$(WARN)[!][$(PROJECT)] Generating index in $(LIB_A)$(C_DEF)"
+	@ranlib $(LIB_A)
+	echo 	-e "$(OK)[+][$(PROJECT)] The $(LIB_A) library was made$(C_DEF)"
+
+
+
+## This rule is called when a difference in operating sistem has been
+## detected. You can put your prerequisite to be changed if a different
+## os has been detected
+os_dep: #put your prerequisite for os dependent stufs
+	## put your os dependent comands here
+	## this will be launched if the os name is 
+	## different then what read from the os file.
+	## ex: make re
+	echo "$(WARN)[!][$(PROJECT)] Os dependent stufs $(C_DEF)"
+
+## Useful Makefile tricks
+##
+## ?= 			// let you put a default variable then later change it
+## j<number>	// let you launche the number of job at the same time
+## ifdef		// let you verify if used defined something or not
+## .SILENT		// This parameter let you launch rules in silent mod
+## .IGNORE		// Ignore parameter used as .SILENT
+#
+## --stop-on-faliur			// stop the program if error occures
+## -k or --keep-going		// To keep ignoring all errors
+## -i or --ignore-errors	// To Ignor error
+## --no-print-directory		// This do not show the 'entered ... directory' warning

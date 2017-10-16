@@ -1,0 +1,19 @@
+## Some color escape codes
+## Do not forget to use this
+## colors with the printf
+## function for a beter performance
+
+default	?=	\e[38;5;15m		## This will put the default color back
+green	?=	\e[38;5;47m		## OK
+yellow	?=	\e[38;5;226m	## light warning
+orange	?=	\e[38;5;208m	## havy  worning
+red		?=	\e[38;5;196m	## ERROR
+blue	?=	\e[38;5;45m		## Not counting
+magenta	?=	\e[38;5;198m	## Light strange
+violet	?=	\e[38;5;171m	## Havy strange
+purple	?=	\e[38;5;165m	## Too strange
+
+C_DEF	?= 	\e[38;5;15m
+OK		?=	\e[38;5;47m
+WARN 	?=	\e[38;5;208m
+ERROR	?=	\e[38;5;196m
