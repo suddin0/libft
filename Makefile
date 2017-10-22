@@ -140,7 +140,7 @@ OBJ_P	=	$(addprefix $(P_OBJ)/,$(OBJ))	## addprefix add the
 											## path name to the files...
 ## Start making here
 __START: os all
-	 printf \n"$(OK)[+][$(PROJECT)] Done $(C_DEF)\n"
+	 printf "$(OK)[+][$(PROJECT)] Done $(C_DEF)\n"
 
 all: $(NAME)
 
