@@ -140,24 +140,24 @@ OBJ_P	=	$(addprefix $(P_OBJ)/,$(OBJ))	## addprefix add the
 											## path name to the files...
 ## Start making here
 __START: os all
-	 printf "$(OK)[+][$(PROJECT)] Done $(C_DEF)\n"
+	 printf "$(OK)[+]$(C_DEF)[$(PROJECT)]$(OK) Done $(C_DEF)\n"
 
 all: $(NAME)
 
-$(NAME): $(SRC)
+$(NAME): $(SRC) $(P_INCLUDE)/libft.h
 	@make library --no-print-directory	
 
 ## Clean objects and others
 clean:		
 	rm		-f	$(OBJ_P)
-	printf "$(WARN)[!][$(PROJECT)] Removed all objects from ./$(P_OBJ)$(C_DEF)\n"
-	printf "$(OK)[+][$(PROJECT)] Cleaned$(C_DEF)\n"
+	printf "$(WARN)[!]$(C_DEF)[$(PROJECT)]$(WARN) Removed all objects from ./$(P_OBJ)$(C_DEF)\n"
+	printf "$(OK)[+]$(C_DEF)[$(PROJECT)]$(OK) Cleaned$(C_DEF)\n"
 
 ## Cleans everything
 fclean:		clean
 	rm		-f	$(LIB_A)
-	printf "$(WARN)[!][$(PROJECT)] Removed $(LIB_A)$(C_DEF)\n"
-	printf "$(OK)[+][$(PROJECT)] Fully cleaned$(C_DEF)\n"
+	printf "$(WARN)[!]$(C_DEF)[$(PROJECT)]$(WARN) Removed $(LIB_A)$(C_DEF)\n"
+	printf "$(OK)[+]$(C_DEF)[$(PROJECT)]$(OK) Fully cleaned$(C_DEF)\n"
 
 re:			fclean $(NAME)
 
@@ -169,18 +169,18 @@ re:			fclean $(NAME)
 object:		$(SRC) $(P_SRC) $(P_OBJ)
 	$(foreach SOURCE, $(SRC), \
 		$(CC) $(CC_FLAG) -I$(INCLUDE) -c $(SOURCE) -o $(P_OBJ)/$(notdir $(SOURCE:.c=.o))	&& \
-		printf "$(OK)[+][$(PROJECT)] $(SOURCE)$(C_DEF)" && sleep $(SLEEP)	&& \
+		printf "$(OK)[+]$(C_DEF)[$(PROJECT)]$(OK) $(SOURCE)$(C_DEF)" && sleep $(SLEEP)	&& \
 		printf "\r\033[K" \
 	;)
-	printf "$(OK)[+][$(PROJECT)] Objects are made in ./$(P_OBJ)$(C_DEF)\n"
+	printf "$(OK)[+]$(C_DEF)[$(PROJECT)]$(OK) Objects are made in ./$(P_OBJ)$(C_DEF)\n"
 
 ## Make the actual library (archive)
 library:	object $(P_OBJ) $(OBJ_P)
-	printf "$(WARN)[!][$(PROJECT)] Creating archive $(LIB_A)$(C_DEF)\n"
+	printf "$(WARN)[!]$(C_DEF)[$(PROJECT)]$(WARN) Creating archive $(LIB_A)$(C_DEF)\n"
 	@ar rc $(LIB_A) $(OBJ_P)
-	printf "$(WARN)[!][$(PROJECT)] Generating index in $(LIB_A)$(C_DEF)\n"
+	printf "$(WARN)[!]$(C_DEF)[$(PROJECT)]$(WARN) Generating index in $(LIB_A)$(C_DEF)\n"
 	@ranlib $(LIB_A)
-	printf "$(OK)[+][$(PROJECT)] The $(LIB_A) library was made$(C_DEF)\n"
+	printf "$(OK)[+]$(C_DEF)[$(PROJECT)]$(OK) The $(LIB_A) library was made$(C_DEF)\n"
 
 
 
@@ -192,7 +192,7 @@ os_dep: #put your prerequisite for os dependent stufs
 	## this will be launched if the os name is 
 	## different then what read from the os file.
 	## ex: make re
-	echo \n"$(WARN)[!][$(PROJECT)] Os dependent stufs $(C_DEF)\n"
+	echo \n"$(WARN)[!]$(C_DEF)[$(PROJECT)]$(WARN) Os dependent stufs $(C_DEF)\n"
 
 ## Useful Makefile tricks
 ##

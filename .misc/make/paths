@@ -8,7 +8,7 @@ P_SRC	?=	src
 P_RES	?=	res
 P_TEST	?=	test
 P_MISC	?=	.misc
-
+P_INCLUDE ?= include
 
 ## If the paths do not exists then they will be created.
 ## Be sure to put the $(VAR NAME) to your prerequisite.

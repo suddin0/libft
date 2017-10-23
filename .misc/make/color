@@ -15,5 +15,5 @@ purple	?=	\e[38;5;165m	## Too strange
 
 C_DEF	?= 	\e[38;5;15m
 OK		?=	\e[38;5;47m
-WARN 	?=	\e[38;5;208m
+WARN 	?=	\e[38;5;226m
 ERROR	?=	\e[38;5;196m
