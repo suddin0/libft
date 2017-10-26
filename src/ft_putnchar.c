@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/16 23:07:38 by suddin            #+#    #+#             */
-/*   Updated: 2017/04/18 02:00:59 by suddin           ###   ########.fr       */
+/*   Created: 2017/04/20 01:48:15 by suddin            #+#    #+#             */
+/*   Updated: 2017/04/24 05:49:20 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
-#include <stdlib.h>
 
-size_t	ft_strlen(const char *s)
+void	ft_putnchar(char c, int n)
 {
-	size_t i;
+	int i;
 
 	i = 0;
-	while (s[i])
+	while (i < n)
+	{
+		write(1, &c, 1);
 		i++;
-	return (i);
+	}
 }
