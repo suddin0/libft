@@ -6,7 +6,7 @@
 /*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/16 23:08:34 by suddin            #+#    #+#             */
-/*   Updated: 2017/05/18 01:02:49 by suddin           ###   ########.fr       */
+/*   Updated: 2017/12/04 02:53:30 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char			*ft_strchr(const char *s, int c);
 int				ft_strcmp(char *s1, char *s2);
 char			*ft_strcpy(char *dest, char *src);
 char			*ft_strdup(char *src);
+size_t			ft_strdupl(char **dest, char *src);
 size_t			ft_strlcat(char *dest, char const *src, size_t size);
 size_t			ft_strlen(const char *s);
 char			*ft_strncat(char *s1, const char *s2, size_t n);

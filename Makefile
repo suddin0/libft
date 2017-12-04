@@ -71,6 +71,7 @@ SRC		=	src/ft_bzero.c		\
 			src/ft_memcmp.c		\
 			src/ft_strlen.c		\
 			src/ft_strdup.c		\
+			src/ft_strdupl.c	\
 			src/ft_strcpy.c		\
 			src/ft_strncpy.c	\
 			src/ft_strcat.c		\
@@ -141,7 +142,7 @@ OBJ_P	=	$(addprefix $(P_OBJ)/,$(OBJ))	## addprefix add the
 											## path name to the files...
 ## Start making here
 __START: os all
-	 printf \n"$(OK)[+][$(PROJECT)] Done $(C_DEF)\n"
+	 printf "$(OK)[+][$(PROJECT)] Done $(C_DEF)\n"
 
 all: $(NAME)
 
@@ -193,7 +194,7 @@ os_dep: #put your prerequisite for os dependent stufs
 	## this will be launched if the os name is 
 	## different then what read from the os file.
 	## ex: make re
-	echo \n"$(WARN)[!][$(PROJECT)] Os dependent stufs $(C_DEF)\n"
+	printf "$(WARN)[!][$(PROJECT)] Os dependent stufs $(C_DEF)\n"
 
 ## Useful Makefile tricks
 ##
