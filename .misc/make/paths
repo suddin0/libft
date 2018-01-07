@@ -17,28 +17,28 @@ P_MISC	?=	.misc
 
 #Bin folder
 $(P_BIN):
-	$(shell /bin/sh -c "[ -b $(P_BIN)] || mkdir $(P_ROOT)/$(P_BIN)")
+	$(shell /bin/sh -c "[ -b $(P_BIN) ] || mkdir $(P_ROOT)/$(P_BIN)")
 
 #Lib folder
 $(P_LIB):
-	$(shell /bin/sh -c "[ -b $(P_LIB)] || mkdir $(P_ROOT)/$(P_LIB)")
+	$(shell /bin/sh -c "[ -b $(P_LIB) ] || mkdir $(P_ROOT)/$(P_LIB)")
 
 #Object folder
 $(P_OBJ):
-	$(shell /bin/sh -c "[ -b $(P_OBJ)] || mkdir $(P_ROOT)/$(P_OBJ)")
+	$(shell /bin/sh -c "[ -b $(P_OBJ) ] || mkdir $(P_ROOT)/$(P_OBJ)")
 
 #Source folder
 $(P_SRC):
-	$(shell /bin/sh -c "[ -b $(P_SRC)] || mkdir $(P_ROOT)/$(P_SRC)")
+	$(shell /bin/sh -c "[ -b $(P_SRC) ] || mkdir $(P_ROOT)/$(P_SRC)")
 
 #Resource folder
 $(P_RES):
-	$(shell /bin/sh -c "[ -b $(P_RES)] || mkdir $(P_ROOT)/$(P_RES)")
+	$(shell /bin/sh -c "[ -b $(P_RES) ] || mkdir $(P_ROOT)/$(P_RES)")
 
 #Test folder
 $(P_TEST):
-	$(shell /bin/sh -c "[ -b $(P_TEST)] || mkdir $(P_ROOT)/$(P_TEST)")
+	$(shell /bin/sh -c "[ -b $(P_TEST) ] || mkdir $(P_ROOT)/$(P_TEST)")
 
 #Miscellaneous folder
 $(P_MISC):
-	$(shell /bin/sh -c "[ -b $(P_MISC)] || mkdir $(P_ROOT)/$(P_MISC)")
+	$(shell /bin/sh -c "[ -b $(P_MISC) ] || mkdir $(P_ROOT)/$(P_MISC)")
