@@ -1,6 +1,18 @@
-### Libft is the Clib for '42'
 
-| Files |
+### Libft is the Clib for '42'
+#### Ft_printf was added in the new update
+
+> Ft_printf is not part of the libft.h and `make` wont compile `ft_printf` library by default
+> To `make` the `ft_printf` library do a `make ft_printf` this will compile the `libft`
+> with ***-O3*** flag and under `pf_libft.a` name and then compile `ft_printf` with ***-Ofas***  flag
+> for optimisation purposes.
+> In this update every library files are put to `lib` directory if you want it to put to a custom
+> directory just `make` it as such `make P_LIB=<custom path> ft_printf` this will create the
+> liibrary to the desired path.
+
+´
+
+| LibFT Files |
 |---------|
 | auteur |
 | ft_abs.c |
@@ -72,7 +84,5 @@
 | ft_tolower.c |
 | ft_toupper.c |
 | libft.a |
-| libftprintf.a |
 | libft.h |
-| ft_printf.h |
 | Makefile |
