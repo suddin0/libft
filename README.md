@@ -10,7 +10,7 @@
 > directory just `make` it as such `make P_LIB=<custom path> ft_printf` this will create the
 > liibrary to the desired path.
 
-´
+
 
 | LibFT Files |
 |---------|
