@@ -72,5 +72,7 @@
 | ft_tolower.c |
 | ft_toupper.c |
 | libft.a |
+| libftprintf.a |
 | libft.h |
+| ft_printf.h |
 | Makefile |
