@@ -6,7 +6,7 @@
 /*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 08:56:59 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/23 09:00:25 by suddin           ###   ########.fr       */
+/*   Updated: 2018/04/27 08:01:46 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	var_init(int *array, int *val_tmp, char flag)
 		val_tmp[0] = 0;
 		val_tmp[1] = 0;
 		val_tmp[2] = 0;
+		val_tmp[3] = 0;
 	}
 	else
 	{

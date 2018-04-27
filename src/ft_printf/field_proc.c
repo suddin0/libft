@@ -6,7 +6,7 @@
 /*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 09:02:42 by suddin            #+#    #+#             */
-/*   Updated: 2018/02/01 09:59:02 by suddin           ###   ########.fr       */
+/*   Updated: 2018/04/27 08:03:27 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	*fld_cus(t_pdata *print, t_pflag *fl, va_list ag,\
 {
 	void	*rt;
 	int		array[4];
-	int		val_tmp[8];
+	int		val_tmp[12];
 	int		read;
 	int		i;
 
