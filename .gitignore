@@ -1,0 +1,7 @@
+.DS*
+*.o
+*.a
+*.dSYM
+.swp
+.gch
+.test
