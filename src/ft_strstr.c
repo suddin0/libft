@@ -6,7 +6,7 @@
 /*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/16 23:08:16 by suddin            #+#    #+#             */
-/*   Updated: 2017/04/17 05:25:29 by suddin           ###   ########.fr       */
+/*   Updated: 2018/07/21 11:00:07 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strstr(char *str, char *to_find)
 	int i;
 	int j;
 
-	if (!ft_strlen(to_find))
+	if (!to_find || !str || to_find[0] == '\0')
 		return (str);
 	i = 0;
 	j = 0;
@@ -32,5 +32,5 @@ char	*ft_strstr(char *str, char *to_find)
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
