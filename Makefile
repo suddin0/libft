@@ -43,8 +43,8 @@ CC		?=	clang 		## default compiler is clang
 
 
 CC_FLAG					?=	-Werror -Wall -Wextra
-PRINTF_CC_FLAG			?=	-Werror -Wall -Wextra -Ofast
-PRINTF_LIBFT_CC_FLAG	?=	-Werror -Wall -Wextra -O3
+PRINTF_CC_FLAG			?=	-Werror -Wall -Wextra
+PRINTF_LIBFT_CC_FLAG	?=	-Werror -Wall -Wextra
 
 ## some useful `flags` for memory verifications
 ##
@@ -186,7 +186,7 @@ OBJ		:=	$(notdir $(SRC:.c=.o))
 PRINTF_OBJ		:=	$(notdir $(SRC:.c=.o))
 
 ## Objects with their path name
-OBJ_P	=	$(addprefix $(P_OBJ)/,$(OBJ))	## addprefix add the 
+OBJ_P	=	$(addprefix $(P_OBJ)/,$(OBJ))	## addprefix add the
 											## path name to the files...
 ## Start making here
 __START: os all
@@ -206,7 +206,7 @@ re:			fclean $(NAME)
 ## individual names, when it creat objects it do
 ## not gives al the names in the same time to gcc
 ## but one by one.
-object:	$(SRC) $(P_SRC) $(P_OBJ) 
+object:	$(SRC) $(P_SRC) $(P_OBJ)
 	$(foreach SOURCE, $(SRC), \
 		$(CC) $(CC_FLAG) -I$(INCLUDE) -c $(SOURCE) -o $(P_OBJ)/$(notdir $(SOURCE:.c=.o))	&& \
 		printf "$(OK)[+][$(PROJECT)] $(SOURCE)$(C_DEF)" && sleep $(SLEEP)	&& \
@@ -231,13 +231,19 @@ library:  object $(P_LIB) $(OBJ_P) $(P_OBJ)
 	printf "$(OK)[+][FT_PRINTF] Done $(C_DEF)\n"
 
 $(PRINTF_LIB_A): $(PRINTF_SRC) $(PRINTF_LIBFT_A)
+ifeq ($(MY_OS_NAME), Linux)
 	@make  CC_FLAG=$(PRINTF_CC_FLAG) printf_library --output-sync=target --no-print-directory
+else
+	@make  CC_FLAG="$(PRINTF_CC_FLAG)" printf_library --no-print-directory
+endif
 
 $(PRINTF_LIBFT_A):
 	@make clean --no-print-directory
+ifeq ($(MY_OS_NAME), Linux)
 	@make CC_FLAG=$(PRINTF_LIBFT_CC_FLAG) 	LIB_A=$(PRINTF_LIBFT_A) NAME=LIB_A=$(PRINTF_LIBFT_A) --output-sync=target --no-print-directory
-
-
+else
+	@make CC_FLAG="$(PRINTF_LIBFT_CC_FLAG)"		LIB_A="$(PRINTF_LIBFT_A)" NAME=LIB_A="$(PRINTF_LIBFT_A)"  --no-print-directory
+endif
 
 printf_object:	$(SRC) $(P_SRC) $(P_OBJ)
 	$(foreach SOURCE, $(PRINTF_SRC), \
@@ -279,7 +285,7 @@ fclean:		clean
 ## os has been detected
 os_dep: #put your prerequisite for os dependent stufs
 	## put your os dependent comands here
-	## this will be launched if the os name is 
+	## this will be launched if the os name is
 	## different then what read from the os file.
 	## ex: make re
 	printf "$(WARN)[!][$(PROJECT)] Os dependent stufs $(C_DEF)\n"
