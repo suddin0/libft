@@ -28,8 +28,8 @@ include .misc/make/misc_var
 
 ## Te `.SILENT` launche evrything specified in
 ## silent mode so you dont have to put the `@`
-.SILENT	: __START	NAME	clean fclean all re object library printf_object printf_library os_dep ft_printf
-.PHONY	: __START			clean fclean all re object library printf_object printf_library os_dep ft_printf
+.SILENT	: __START	NAME	clean fclean all re object library printf_object library printf_err_object printf_library printf_err_library os_dep ft_printf ft_printf_err
+.PHONY	: __START			clean fclean all re object library printf_object library printf_err_object printf_library printf_err_library os_dep ft_printf ft_printf_err
 
 
 ## This is launched if no param given
@@ -62,6 +62,7 @@ NAME	?=	$(P_LIB)/libft.a 		## The name of your binary
 LIB_A			?=	$(P_LIB)/libft.a
 PRINTF_LIBFT_A	?=	$(P_LIB)/pf_libft.a
 PRINTF_LIB_A	?=	$(P_LIB)/libftprintf.a
+PRINTF_ERR_LIB_A	?=	$(P_LIB)/libftprintferr.a
 
 
 ## sources and objects where path names are removed.
@@ -181,6 +182,51 @@ PRINTF_SRC =	src/ft_printf/ft_printf.c						\
 		  		src/ft_printf/flags/wchar/w_to_char.c			\
 
 
+PRINTF_ERR_SRC =src/ft_printf_err/ft_printf_err.c						\
+		  		src/ft_printf_err/format_verif.c					\
+		  		src/ft_printf_err/format_verif_extra.c				\
+		  		src/ft_printf_err/is_flag.c							\
+		  		src/ft_printf_err/flag_man.c						\
+		  		src/ft_printf_err/data_man.c						\
+		  		src/ft_printf_err/dataset.c							\
+		  		src/ft_printf_err/simple_sort.c						\
+		  		src/ft_printf_err/get_next_arg_int.c				\
+		  		src/ft_printf_err/hier_man.c						\
+		  		src/ft_printf_err/get_arg/arg_llint.c				\
+		  		src/ft_printf_err/get_arg/arg_ullint.c				\
+		  		src/ft_printf_err/get_arg/arg_uint.c				\
+		  		src/ft_printf_err/get_arg/arg_str.c					\
+		  		src/ft_printf_err/get_arg/arg_void.c				\
+		  		src/ft_printf_err/get_arg/arg_wcharc.c				\
+		  		src/ft_printf_err/get_arg/arg_wchars.c				\
+		  		src/ft_printf_err/field_proc.c						\
+		  		src/ft_printf_err/multi_verif/multi_verif.c			\
+		  		src/ft_printf_err/multi_verif/verif_f1.c			\
+		  		src/ft_printf_err/multi_verif/verif_f2.c			\
+		  		src/ft_printf_err/multi_verif/verif_f3.c			\
+		  		src/ft_printf_err/multi_verif/verif_l1.c			\
+		  		src/ft_printf_err/multi_verif/verif_l2.c			\
+		  		src/ft_printf_err/multi_verif/verif_l3.c			\
+		  		src/ft_printf_err/flags/string/printf_string.c		\
+		  		src/ft_printf_err/flags/char/printf_char.c			\
+		  		src/ft_printf_err/flags/percent/printf_percent.c	\
+		  		src/ft_printf_err/flags/number/printf_number.c		\
+		  		src/ft_printf_err/flags/decimal/printf_int_extra.c	\
+		  		src/ft_printf_err/flags/decimal/printf_int.c		\
+		  		src/ft_printf_err/flags/decimal/printf_uint.c		\
+		  		src/ft_printf_err/flags/decimal/printf_uuint.c		\
+		  		src/ft_printf_err/flags/decimal/printf_lint.c		\
+		  		src/ft_printf_err/flags/base/printf_base_extra.c	\
+		  		src/ft_printf_err/flags/base/printf_base.c			\
+		  		src/ft_printf_err/flags/base/printf_ubase.c			\
+		  		src/ft_printf_err/flags/pointer/printf_pointer.c	\
+				src/ft_printf_err/flags/wchar/printf_wcharc.c		\
+				src/ft_printf_err/flags/wchar/printf_wchars.c		\
+				src/ft_printf_err/flags/wchar/w_to_char.c			\
+
+
+
+
 ## Objects without path names
 OBJ		:=	$(notdir $(SRC:.c=.o))
 PRINTF_OBJ		:=	$(notdir $(SRC:.c=.o))
@@ -230,11 +276,22 @@ library:  object $(P_LIB) $(OBJ_P) $(P_OBJ)
  ft_printf:	$(PRINTF_LIB_A)
 	printf "$(OK)[+][FT_PRINTF] Done $(C_DEF)\n"
 
+ ft_printf_err:	$(PRINTF_ERR_LIB_A)
+	printf "$(OK)[+][FT_PRINTF] Done $(C_DEF)\n"
+
 $(PRINTF_LIB_A): $(PRINTF_SRC) $(PRINTF_LIBFT_A)
 ifeq ($(MY_OS_NAME), Linux)
 	@make  CC_FLAG=$(PRINTF_CC_FLAG) printf_library --output-sync=target --no-print-directory
 else
 	@make  CC_FLAG="$(PRINTF_CC_FLAG)" printf_library --no-print-directory
+endif
+
+
+$(PRINTF_ERR_LIB_A): $(PRINTF_SRC) $(PRINTF_LIBFT_A)
+ifeq ($(MY_OS_NAME), Linux)
+	@make  CC_FLAG=$(PRINTF_CC_FLAG) printf_err_library --output-sync=target --no-print-directory
+else
+	@make  CC_FLAG="$(PRINTF_CC_FLAG)" printf_err_library --no-print-directory
 endif
 
 $(PRINTF_LIBFT_A):
@@ -260,6 +317,23 @@ printf_library:	printf_object $(P_OBJ) $(P_LIB)
 	printf "$(WARN)[!]$(C_DEF)[FT_PRINTF]$(WARN) Generating index in $(PRINTF_LIB_A)$(C_DEF)\n"
 	@ranlib $(PRINTF_LIB_A)
 	printf "$(OK)[+]$(C_DEF)[FT_PRINTF]$(OK) The $(PRINTF_LIB_A) library was made$(C_DEF)\n"
+
+#PRINTF ERROR ---
+printf_err_object:	$(SRC) $(P_SRC) $(P_OBJ)
+	$(foreach SOURCE, $(PRINTF_ERR_SRC), \
+		$(CC) $(CC_FLAG) -I $(INCLUDE) -c $(SOURCE) -o $(P_OBJ)/$(notdir $(SOURCE:.c=.o))	&& \
+		printf "$(OK)[+]$(C_DEF)[FT_PRINTF_ERR]$(OK) $(SOURCE)$(C_DEF)" && sleep $(SLEEP) && \
+		printf "\r\033[K" \
+		;)
+	printf "$(OK)[+]$(C_DEF)[FT_PRINTF_ERR]$(OK) Objects are made in ./$(P_OBJ)$(C_DEF)\n"
+
+## Make the actual library (archive)
+printf_err_library:	printf_err_object $(P_OBJ) $(P_LIB)
+	printf "$(WARN)[!]$(C_DEF)[FT_PRINTF_ERR]$(WARN) Creating archive $(PRINTF_ERR_LIB_A)$(C_DEF)\n"
+	@ar rc $(PRINTF_ERR_LIB_A)  $(OBJ_W)
+	printf "$(WARN)[!]$(C_DEF)[FT_PRINTF_ERR]$(WARN) Generating index in $(PRINTF_ERR_LIB_A)$(C_DEF)\n"
+	@ranlib $(PRINTF_ERR_LIB_A)
+	printf "$(OK)[+]$(C_DEF)[FT_PRINTF_ERR]$(OK) The $(PRINTF_ERR_LIB_A) library was made$(C_DEF)\n"
 # ------------ Printf Library END --------------
 
 

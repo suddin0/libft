@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf_err.h"
 
 static int	wchars_len(wchar_t *str)
 {
