@@ -15,5 +15,6 @@
 void	ft_putnbrendl(int i)
 {
 	ft_putnbr(i);
-	ft_putchar('\n');
+	write(FT_STDOUT_FD, "\n", 1);
+	// ft_putchar('\n');
 }

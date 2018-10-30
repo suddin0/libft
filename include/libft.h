@@ -15,6 +15,81 @@
 
 # include <stdlib.h>
 # include <string.h>
+# include <unistd.h>
+# include <limits.h>
+
+/*
+* The following header is used to detect the machine architechure
+*/
+
+# include <stdint.h>
+
+
+# if INTPTR_MAX == INT32_MAX
+	# define FT_CHAR_SIZE_BYTE			1
+	# define FT_SHORT_SIZE_BYTE			2
+	# define FT_INT_SIZE_BYTE			4
+	# define FT_LONG_INT_SIZE_BYTE		4
+	# define FT_FLOAT_SIZE_BYTE			4
+	# define FT_DOUBLE_SIZE_BYTE		8
+	# define FT_LONG_DOUBLE_SIZE_BYTE	12
+
+	# define FT_CHAR_SIZE_BIT			8
+	# define FT_SHORT_SIZE_BIT			16
+	# define FT_INT_SIZE_BIT			32
+	# define FT_LONG_INT_SIZE_BIT		32
+	# define FT_FLOAT_SIZE_BIT			32
+	# define FT_DOUBLE_SIZE_BIT			64
+	# define FT_LONG_DOUBLE_SIZE_BIT	96
+
+# elif INTPTR_MAX == INT64_MAX
+	# define FT_CHAR_SIZE_BYTE			1
+	# define FT_SHORT_SIZE_BYTE			2
+	# define FT_INT_SIZE_BYTE			4
+	# define FT_LONG_INT_SIZE_BYTE		8
+	# define FT_FLOAT_SIZE_BYTE			4
+	# define FT_DOUBLE_SIZE_BYTE		8
+	# define FT_LONG_DOUBLE_SIZE_BYTE	16
+
+	# define FT_CHAR_SIZE_BIT			8
+	# define FT_SHORT_SIZE_BIT			16
+	# define FT_INT_SIZE_BIT			32
+	# define FT_LONG_INT_SIZE_BIT		64
+	# define FT_FLOAT_SIZE_BIT			32
+	# define FT_DOUBLE_SIZE_BIT			64
+	# define FT_LONG_DOUBLE_SIZE_BIT	128
+	
+# else
+    #error "Environment not 32 or 64-bit."
+# endif
+
+# define FT_STDIN_FD	0
+# define FT_STDOUT_FD	1
+# define FT_STDERR_FD	2
+
+/*
+*	SHRT_MAX	:	 32767
+*	SHRT_MIN	:	–32768
+*
+*	INT_MAX		:	 2147483647
+*	INT_MIN		:	-2147483648
+*
+*	UINT_MAX	:	 4294967295
+*
+*	LONG_MAX	:	 9223372036854775807
+*	LONG_MIN	:	-9223372036854775808
+*/
+
+# define FT_SHRT_MAX_LEN	5
+# define FT_SHRT_MIN_LEN	6
+
+# define FT_INT_MAX_LEN		10
+# define FT_UINT_MAX_LEN	10
+# define FT_INT_MIN_LEN		11
+
+# define FT_LONG_MAX_LEN	19
+# define FT_LONG_MIN_LEN	11
+
 
 typedef struct	s_list
 {

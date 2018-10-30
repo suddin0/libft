@@ -15,29 +15,29 @@
 
 void	ft_putnbr(int n)
 {
-	char			s[ft_intlen(n) + 1];
-	int				i;
-	long			k;
+	char			s[FT_INT_MIN_LEN + 1];
+	int    			i;
 
-	k = n;
-	i = (k < 0) ? ft_intlen(k) : ft_intlen(k) - 1;
-	ft_bzero(&s, ft_intlen(n) + 1);
-	if (k < 0)
+	if (n >= 0 && n < 10)
+    {
+        n += '0';
+		write(FT_STDOUT_FD, &(n), 1);
+    }
+	else if (n == INT_MIN)
+		write(FT_STDOUT_FD, "-2147483648", FT_INT_MIN_LEN);
+	else
 	{
-		s[0] = '-';
-		i--;
-		k *= -1;
+		s[FT_INT_MIN_LEN] = (unsigned int) n >> (FT_INT_SIZE_BIT - 1);
+		i = FT_INT_MIN_LEN - 1;
+        if(n < 0)
+            n = -n;
+		while(n)
+		{
+			s[i--] = (n % 10) + 48;
+			n /= 10;
+		}
+		s[i] = '-';
+        i -= s[FT_INT_MIN_LEN];
+		write(FT_STDOUT_FD, &(s[i + 1]), (FT_INT_MIN_LEN  - i) - 1);
 	}
-	else if (k == 0)
-	{
-		ft_putchar('0');
-		return ;
-	}
-	while (k > 0)
-	{
-		s[i] = (k % 10) + 48;
-		k /= 10;
-		i--;
-	}
-	ft_putstr(s);
 }
