@@ -58,7 +58,7 @@
 	# define FT_FLOAT_SIZE_BIT			32
 	# define FT_DOUBLE_SIZE_BIT			64
 	# define FT_LONG_DOUBLE_SIZE_BIT	128
-	
+
 # else
     #error "Environment not 32 or 64-bit."
 # endif

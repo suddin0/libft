@@ -22,6 +22,8 @@
 # include "ft_printf_extra.h"
 
 int		ft_printf(const char *restrict format, ...);
+int		ft_dprintf(int fd, const char *format, ...);
+int		printf_internal(int fd, const char *restrict format, va_list args);
 int		is_flag(t_uchar c);
 void	data_man(t_pdata *print, t_uchar *src, long start, long end);
 void	dataset(t_pdata *print, t_uchar c, size_t n);

@@ -13,6 +13,18 @@
 #ifndef FT_PRINTF_EXTRA_H
 # define FT_PRINTF_EXTRA_H
 
+# ifndef FT_STDIN_FD
+	# define FT_STDIN_FD 0
+# endif
+
+# ifndef FT_STDOUT_FD
+	# define FT_STDOUT_FD 1
+# endif
+
+# ifndef FT_STDERR_FD
+	# define FT_STDERR_FD 2
+# endif
+
 # define P_BUFF_SIZE 4096
 
 typedef long int				t_lint;
@@ -36,6 +48,7 @@ typedef struct	s_pdata
 	int		flags;
 	long	tstart;
 	long	tend;
+	int		fd;
 }				t_pdata;
 
 typedef struct	s_pflag
