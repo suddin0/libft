@@ -46,10 +46,7 @@ CC		?=	clang 		## default compiler is clang
 # 			-Wextra
 
 
-CC_FLAG ?=	-g									\
-			-fsanitize=address					\
-			-fno-omit-frame-pointer				\
-			-fsanitize-address-use-after-scope	\
+CC_FLAG ?=
 
 ## some useful `flags` for memory verifications
 ##
@@ -77,6 +74,9 @@ LIBFT_FLAGS = -I $(LIBFT_INC) -L $(LIBFT_LIB) -lft # You can also add -lftprintf
 SRC		=		$(MAIN)					\
 				$(P_SRC)/argvdup.c		\
 				$(P_SRC)/argv_free.c	\
+				$(P_SRC)/optarg_cmp.c	\
+				$(P_SRC)/compare_argv.c	\
+				$(P_SRC)/check_diff.c	\
 
 ## Objects without path names
 OBJ		:=	$(notdir $(SRC:.c=.o))
@@ -101,14 +101,14 @@ $(LIBFT_A):
 
 
 ## Clean objects and others
-clean:		$(OBJ_P)
+clean:
 	rm		-f	$(OBJ_P)
 	printf	"$(WARN)[!][$(PROJECT)] Removed all objects from ./$(P_OBJ)$(C_DEF)\n"
 	printf	"$(OK)[+][$(PROJECT)] Cleaned$(C_DEF)\n"
 
 ## Cleans everything
 fclean:		clean
-	rm		-f	$(OBJ_W)
+	rm		-f	$(NAME)
 	printf	"$(WARN)[!][$(PROJECT)] Removed all binary ./$(P_BIN)$(C_DEF)\n"
 	printf	"$(OK)[+][$(PROJECT)] Fully cleaned$(C_DEF)\n"
 
