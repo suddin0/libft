@@ -220,7 +220,8 @@ int longopt_err(t_getopt_internal_args arg, char *argv, const char *opt, int err
 	else if(err == 2)
 	{
 		if(arg.print_error)
-			ft_dprintf( FT_STDERR_FD, "%s: option '--%s' requires an argument\n", argv, opt);
+			ft_dprintf( FT_STDERR_FD, "%s: option '--%s' requires an argument\n",\
+			argv, opt);
 		set_getopt_data_long(arg);
 		return(arg.colon ? OPT_ERROR_MISS_ARG : OPT_ERROR_DEFAULT);
 	}
@@ -233,15 +234,22 @@ int manage_long_opt(t_getopt_internal_args arg, int *longindex, t_ambig_set *amb
 
 	index = ambig_set->exact_match != OPT_EXACT_MATCH_DEFAULT \
 		? ambig_set->exact_match : ambig_set->index[0];
+	/* Manages errors */
+
+	/* Need no argument but has one argument */
 	if(arg.longopts[index].has_arg == NO_ARGUMENT && argument != -1)
 		return(longopt_err(arg, arg.argv[0], arg.longopts[index].name, 1));
+	/* Requires an argument but has none */
 	else if(arg.longopts[index].has_arg == REQUIRED_ARGUMENT \
 			&& (argument == -1 && arg.getopt_data->optind + 1 == arg.argc))
 		return(longopt_err(arg, arg.argv[0], arg.longopts[index].name, 2));
+
+
 	if(longindex)
 		*longindex = index;
 	if(arg.longopts[index].has_arg != NO_ARGUMENT)
 		manage_long_opt_arg(arg, ambig_set, argument);
+
 	set_getopt_data_long(arg);
 	return(arg.longopts[index].flag ? 0 : arg.longopts[index].val);
 }
@@ -284,6 +292,7 @@ int getopt_internal_long(t_getopt_internal_args arg, t_getopt_data *getopt_data,
 			ft_dprintf( FT_STDERR_FD, "%s: unrecognized option '%s'\n", arg.argv[0], arg.argv[getopt_data->optind]);
 		free_opt_ambig_set(&opt, &ambig_set);
 		set_getopt_data_long(arg);
+		getopt_data->optopt = 0;
 		return(OPT_ERROR_DEFAULT);
 	}
 	else if(ambig_set.exact_match != OPT_EXACT_MATCH_DEFAULT ||   ambig_set.len == 1)

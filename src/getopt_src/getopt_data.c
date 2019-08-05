@@ -13,7 +13,7 @@ static void getopt_data_init(t_getopt_data *getopt_data)
 	getopt_data->opterr = 1;
 	getopt_data->optopt = 0;
 	getopt_data->nextchar = 0;
-	getopt_data->last_optind = 0;
+	getopt_data->last_optind = 1;
 }
 
 t_getopt_data *get_getopt_data()

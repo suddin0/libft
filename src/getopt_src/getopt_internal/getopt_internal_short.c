@@ -84,6 +84,9 @@ int check_optarg(char *opt)
 
 int short_arg(t_getopt_internal_args arg, t_getopt_data *d, int argtype, int c)
 {
+	int error;
+
+	error = c;
 	/* If argument is optional */
 	if(argtype == OPT_ARG_OPTIONAL)
 	{
@@ -109,15 +112,13 @@ int short_arg(t_getopt_internal_args arg, t_getopt_data *d, int argtype, int c)
 			if(arg.print_error)
 				ft_dprintf( FT_STDERR_FD, "%s: option requires an argument -- '%c'\n", arg.argv[0], c);
 			d->optopt = c;
-			d->optind++;
-			d->nextchar = 0;
-			return(arg.colon ? OPT_ERROR_MISS_ARG : OPT_ERROR_DEFAULT);
+			error = arg.colon ? OPT_ERROR_MISS_ARG : OPT_ERROR_DEFAULT;
 		}
 	}
 	argv_mutate(arg, d->optind);
 	d->optind++;
 	d->nextchar = 0;
-	return(c);
+	return(error);
 }
 
 int getopt_internal_short(t_getopt_internal_args arg, t_getopt_data *getopt_data)
