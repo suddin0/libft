@@ -222,7 +222,7 @@ all: $(NAME)
 
 $(NAME):  $(P_LIB) $(LIB_A)
 
-$(LIB_A): $(OBJ)
+$(LIB_A): $(OBJ) $(P_LIB)
 	@ar rc $(LIB_A) $(OBJ)
 	@printf "ar rc $(LIB_A) *.o\n"
 	@ranlib $(LIB_A)
@@ -231,20 +231,21 @@ $(LIB_A): $(OBJ)
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -I $(INCLUDE) -c -o  $@ $<
 
-re:			fclean $(NAME)
+re:	 fclean
+	@make --no-print-directory
 
 ## Clean objects and others
-clean: $(P_OBJ) $(P_LIB)
+clean:
 	rm		-f	$(OBJ)
-	printf "$(WARN)[!][$(PROJECT)] Removed all objects from ./$(P_OBJ)$(C_DEF)\n"
+	printf "$(WARN)[!][$(PROJECT)] Removed all objects from$(C_DEF)\n"
 	printf "$(OK)[+][$(PROJECT)] Cleaned$(C_DEF)\n"
 
 ## Cleans everything
 fclean:		clean
 	rm		-f	$(LIB_A) $(PRINTF_LIB_A)
-	printf "$(WARN)[!][$(PROJECT)] Removed $(LIB_A) and $(PRINTF_LIB_A)$(C_DEF)\n"
-	rm -rf $(P_OBJ) $(P_LIB)
-	printf "$(WARN)[!][$(PROJECT)] Removed $(P_OBJ) and $(P_LIB) directory$(C_DEF)\n"
+	printf "$(WARN)[!][$(PROJECT)] Removed $(LIB_A)$(C_DEF)\n"
+	rm -rf $(P_LIB)
+	printf "$(WARN)[!][$(PROJECT)] Removed $(P_LIB) directory$(C_DEF)\n"
 	printf "$(OK)[+][$(PROJECT)] Fully cleaned$(C_DEF)\n"
 
 

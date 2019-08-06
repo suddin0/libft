@@ -6,7 +6,7 @@
 /*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 21:40:42 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/26 09:50:31 by suddin           ###   ########.fr       */
+/*   Updated: 2019/08/07 00:13:40 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 # define FT_PRINTF_EXTRA_H
 
 # ifndef FT_STDIN_FD
-	# define FT_STDIN_FD 0
+#  define FT_STDIN_FD 0
 # endif
 
 # ifndef FT_STDOUT_FD
-	# define FT_STDOUT_FD 1
+#  define FT_STDOUT_FD 1
 # endif
 
 # ifndef FT_STDERR_FD
-	# define FT_STDERR_FD 2
+#  define FT_STDERR_FD 2
 # endif
 
 # define P_BUFF_SIZE 4096

@@ -6,7 +6,7 @@
 /*   By: samad <samad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/14 05:09:29 by samad             #+#    #+#             */
-/*   Updated: 2018/01/27 23:19:15 by suddin           ###   ########.fr       */
+/*   Updated: 2019/08/07 00:10:46 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ static inline void		ft_printf_extra(va_list args, t_ppnt *flag_pnt, \
 	}
 }
 
-int				printf_internal(int fd, const char *restrict format, va_list args)
+int						printf_internal(int fd, const char *restrict format,\
+		va_list args)
 {
 	t_pdata	print[1];
 	t_ppnt	flag_pnt;

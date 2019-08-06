@@ -4,106 +4,106 @@
 # include "libft.h"
 # include "ft_printf.h"
 
-#define OPTIND 						0
-#define OPTERR 						1
-#define OPTOPT 						2
-#define OPTARG 						3
+# define OPTIND 					0
+# define OPTERR 					1
+# define OPTOPT 					2
+# define OPTARG 					3
 
 
 /*
-	The following defines are used as values of the lement `has_arg` of the
-	structure `struct s_option`. The followiing defines are in small case
-	in the original library
-	(https://github.com/lattera/glibc/blob/master/posix/bits/getopt_ext.h#L62-L64)
-	in 42 the defines must be declared in `capital letters`
+   The following defines are used as values of the lement `has_arg` of the
+   structure `struct s_option`. The followiing defines are in small case
+   in the original library
+   (https://github.com/lattera/glibc/blob/master/posix/bits/getopt_ext.h#L62-L64)
+   in 42 the defines must be declared in `capital letters`
 */
 
-#define NO_ARGUMENT					0
-#define REQUIRED_ARGUMENT			1
-#define OPTIONAL_ARGUMENT			2
+# define NO_ARGUMENT				0
+# define REQUIRED_ARGUMENT			1
+# define OPTIONAL_ARGUMENT			2
 
-#define GETOPT_INITIALIZED			1
-#define GETOPT_ERROR_SHOW			1
+# define GETOPT_INITIALIZED			1
+# define GETOPT_ERROR_SHOW			1
 
 /* Option types */
-#define OPT_TYPE_NONE				0
-#define OPT_TYPE_ARG				1 /* Set arguments as parameters if the `-` is present in `optstring` */
-#define OPT_TYPE_SHORT				2
-#define OPT_TYPE_LONG				3
-#define OPT_TYPE_END				4
-#define OPT_TYPE_ERROR				-1
+# define OPT_TYPE_NONE				0
+# define OPT_TYPE_ARG				1 /* Set arguments as parameters if the `-` is present in `optstring` */
+# define OPT_TYPE_SHORT				2
+# define OPT_TYPE_LONG				3
+# define OPT_TYPE_END				4
+# define OPT_TYPE_ERROR				-1
 
-#define GETOPT_END					-1
+# define GETOPT_END					-1
 
 #ifndef NULL
-	#define NULL ((void *)0)
+# define NULL ((void *)0)
 #endif
 
 #ifndef TRUE
-	#define TRUE					1
+# define TRUE						1
 #endif
 
 #ifndef FALSE
-	#define FALSE					0
+# define FALSE						0
 #endif
 
-#define OPT_TREAT_NO_PRINT_ERROR	0
-#define OPT_TREAT_PRINT_ERROR		1
-#define OPT_TREAT_POSIXLY_CORRECT	'+' /* If any non option is found then stop */
-#define OPT_TREAT_NON_OPT_ARG		'-'	/* If a non option is found treat it as an option argument */
-#define OPT_TREAT_MUTATE			2	/* move all non option argument to the end of array */
+# define OPT_TREAT_NO_PRINT_ERROR	0
+# define OPT_TREAT_PRINT_ERROR		1
+# define OPT_TREAT_POSIXLY_CORRECT	'+' /* If any non option is found then stop */
+# define OPT_TREAT_NON_OPT_ARG		'-'	/* If a non option is found treat it as an option argument */
+# define OPT_TREAT_MUTATE			2	/* move all non option argument to the end of array */
 
 /* Getopt error returns */
-#define OPT_ERROR_DEFAULT			'?'
-#define OPT_ERROR_MISS_ARG			':' /*
-											If the `:` option is passed to optstring
-											then in case of missing argument the following
-											character will be returned.
-										*/
+# define OPT_ERROR_DEFAULT			'?'
+# define OPT_ERROR_MISS_ARG			':' /*
+										   If the `:` option is passed to optstring
+										   then in case of missing argument the following
+										   character will be returned.
+										   */
 
 
-#define OPT_ARG_NONE				0 /* No arhuments are required */
-#define OPT_ARG_MANDATORY			1 /* An argument is required */
-#define OPT_ARG_OPTIONAL			2 /* An optional argument is required */
+# define OPT_ARG_NONE				0 /* No arhuments are required */
+# define OPT_ARG_MANDATORY			1 /* An argument is required */
+# define OPT_ARG_OPTIONAL			2 /* An optional argument is required */
 
 
-#define ARG_SEPARATOR				'='
+# define ARG_SEPARATOR				'='
 
-#define AMBIG_SET_SIZE			50
+# define AMBIG_SET_SIZE				50
 
-#define OPT_NO_MATCH			0
-#define OPT_PARTIAL_MATCH		1
-#define OPT_EXACT_MATCH			2
-#define OPT_EXACT_MATCH_DEFAULT	-1
+# define OPT_NO_MATCH				0
+# define OPT_PARTIAL_MATCH			1
+# define OPT_EXACT_MATCH			2
+# define OPT_EXACT_MATCH_DEFAULT	-1
 
 
 /*
-	The following structured is used to pass iformation about long options
-*/
+   The following structured is used to pass iformation about long options
+   */
 
 typedef struct	s_option
 {
 	const char	*name;	/* The long option name */
 	int			has_arg;
 	int			*flag; 	/*
-							If null then returns value,
-							else saven the value of val
-						*/
+						   If null then returns value,
+						   else saven the value of val
+						   */
 
 	int			val;	/*
-							If f*lag is null then returns the value of val else
-							saves the value of val in *flag
-						*/
+						   If f*lag is null then returns the value of val else
+						   saves the value of val in *flag
+						   */
 }				t_option;
 
 
 
 /*
-	The following structure is used to store the bariables which are global
-	in the system `getopt`. As in some projects at 42 it is forbidden to use
-	global variables so we use a structure that will be declared as a `static`
-	and `Emulate` global variables.
-*/
+   The following structure is used to store the bariables which are global
+   in the system `getopt`. As in some projects at 42 it is forbidden to use
+   global variables so we use a structure that will be declared as a `static`
+   and `Emulate` global variables.
+   */
 
 typedef struct	s_optvar
 {
@@ -118,9 +118,9 @@ typedef struct	s_optvar
 
 
 /*
-	The following structure is used to reduce the length of parameters where
-	you pute `argc` and `argv` as parameters.
-*/
+   The following structure is used to reduce the length of parameters where
+   you pute `argc` and `argv` as parameters.
+   */
 
 typedef struct	s_getopt_arg
 {
@@ -147,7 +147,7 @@ typedef struct	s_getopt_data
 
 }				t_getopt_data;
 
-typedef struct s_ambig_set
+typedef struct	s_ambig_set
 {
 	int *index;		/* Saves the indexes of options of `t_option` that matches current option */
 	int len;		/* Contain the lenth of valide values */
@@ -156,10 +156,10 @@ typedef struct s_ambig_set
 }				t_ambig_set;
 
 /*
-	The following structure is used to passe arguments to getopt_internal(...)
-	function, as in 42 only 4 arguments are the most argument that we can pass
-	so this `hack` is used.
-*/
+   The following structure is used to passe arguments to getopt_internal(...)
+   function, as in 42 only 4 arguments are the most argument that we can pass
+   so this `hack` is used.
+   */
 
 typedef struct	s_getopt_internal_args
 {
@@ -209,7 +209,7 @@ int				set_next_opt(t_getopt_internal_args int_arg, int argc, char **argv); // T
 void			argv_mutate(t_getopt_internal_args arg, int index); // <---
 int				option_type(char *opt);
 void			internal_args_init(t_getopt_internal_args *internal_arg,\
-			t_getopt_arg arg, const char *optstring,  const t_option *longopts);
+		t_getopt_arg arg, const char *optstring,  const t_option *longopts);
 int				getopt_end(t_getopt_internal_args arg);
 
 #endif

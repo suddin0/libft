@@ -11,7 +11,7 @@ static void optvar_init(t_optvar *optvar)
 
 t_optvar *get_optvar()
 {
-	static t_optvar optvar = {0};
+	static t_optvar optvar;
 
 	if(!optvar.initialized)
 		optvar_init(&optvar);

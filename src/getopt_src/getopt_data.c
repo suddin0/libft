@@ -18,7 +18,7 @@ static void getopt_data_init(t_getopt_data *getopt_data)
 
 t_getopt_data *get_getopt_data()
 {
-	static t_getopt_data getopt_data = {0};
+	static t_getopt_data getopt_data;
 
 	if(!getopt_data.initialized)
 		getopt_data_init(&getopt_data);
