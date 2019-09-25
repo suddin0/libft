@@ -138,7 +138,7 @@ LIBFT_SRC =		$(P_LIBFT_SRC)/ft_bzero.c							\
 				$(P_LIBFT_SRC)/ft_strjoini.c						\
 				$(P_LIBFT_SRC)/ft_strchri.c
 
-PRINTF_SRC =	$(P_PRINTF_SRC)/ft_printf.c							\
+PRINTF_SRC =	$(P_PRINTF_SRC)/print/ft_printf.c					\
 		  		$(P_PRINTF_SRC)/ft_dprintf.c						\
 		  		$(P_PRINTF_SRC)/printf_internal.c					\
 		  		$(P_PRINTF_SRC)/format_verif.c						\

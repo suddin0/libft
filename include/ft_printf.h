@@ -21,8 +21,25 @@
 # include <stddef.h>
 # include "ft_printf_extra.h"
 
-int		ft_printf(const char *restrict format, ...);
-int		ft_dprintf(int fd, const char *format, ...);
+
+// + int printf(const char *format, ...);
+// X int fprintf(FILE *stream, const char *format, ...);
+// + int dprintf(int fd, const char *format, ...);
+
+
+
+int		ft_printf(const char *restrict format, ...);					/* DONE */
+int		ft_dprintf(int fd, const char *format, ...);					/* DONE */
+// int		ft_sprintf(char *str, const char *format, ...);					/* TODO */
+int		ft_snprintf(char *str, size_t size, const char *format, ...);	/* TODO */
+
+// int		ft_vprintf(const char *format, va_list ap);								/* TODO */
+// int		ft_vfprintf(FILE *stream, const char *format, va_list ap);				/* TODO */
+// int		ft_vdprintf(int fd, const char *format, va_list ap);					/* TODO */
+// int		ft_vsprintf(char *str, const char *format, va_list ap);					/* TODO */
+// int		ft_vsnprintf(char *str, size_t size, const char *format, va_list ap);	/* TODO */
+
+
 int		printf_internal(int fd, const char *restrict format, va_list args);
 int		is_flag(t_uchar c);
 void	data_man(t_pdata *print, t_uchar *src, long start, long end);

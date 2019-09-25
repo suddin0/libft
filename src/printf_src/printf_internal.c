@@ -12,6 +12,10 @@
 
 #include "ft_printf.h"
 
+/*
+	This function initialise the internal data structure on which the core
+	printf_internal depend to print and for other stuff.
+*/
 static inline	void	data_init(t_pdata *print, t_ppnt *flag_pnt, int fd)
 {
 	print->len = 0;
@@ -26,6 +30,10 @@ static inline	void	data_init(t_pdata *print, t_ppnt *flag_pnt, int fd)
 	flag_pnt->start = 0;
 }
 
+/*
+	This function initiate the function table which is called during data
+	formating.
+*/
 static inline	void	func_init(t_ppnt *flag_pnt)
 {
 	(flag_pnt->func)[0] = printf_string;
@@ -46,6 +54,13 @@ static inline	void	func_init(t_ppnt *flag_pnt)
 	(flag_pnt->func)[15] = printf_wchars;
 }
 
+/*
+	The following function is an extention if `printf_internal` as the 42 norm
+	require that the functions be at max 25 lines.
+
+	This function loop over the string containing the formats and treat as
+	requiored.
+*/
 static inline void		ft_printf_extra(va_list args, t_ppnt *flag_pnt, \
 		char *str, t_pdata *print)
 {
@@ -75,6 +90,12 @@ static inline void		ft_printf_extra(va_list args, t_ppnt *flag_pnt, \
 	}
 }
 
+
+/*
+	The following function parse the text and format it. This is the core of all
+	printf functions.
+*/
+
 int						printf_internal(int fd, const char *restrict format,\
 		va_list args)
 {
@@ -95,6 +116,5 @@ int						printf_internal(int fd, const char *restrict format,\
 	data_man(print, (t_uchar *)str, print->tstart, print->tend);
 	write(fd, print->data, print->data_len);
 	len = print->len;
-	va_end(args);
 	return (len);
 }
