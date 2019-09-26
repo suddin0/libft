@@ -13,9 +13,10 @@
 #include "ft_printf.h"
 
 /*
-	This function initialise the internal data structure on which the core
-	printf_internal depend to print and for other stuff.
+**	This function initialise the internal data structure on which the core
+**	printf_internal depend to print and for other stuff.
 */
+
 static inline	void	data_init(t_pdata *print, t_ppnt *flag_pnt, t_piopt opt)
 {
 	print->data = opt.buff;
@@ -34,9 +35,10 @@ static inline	void	data_init(t_pdata *print, t_ppnt *flag_pnt, t_piopt opt)
 }
 
 /*
-	This function initiate the function table which is called during data
-	formating.
+**	This function initiate the function table which is called during data
+**	formating.
 */
+
 static inline	void	func_init(t_ppnt *flag_pnt)
 {
 	(flag_pnt->func)[0] = printf_string;
@@ -57,22 +59,23 @@ static inline	void	func_init(t_ppnt *flag_pnt)
 	(flag_pnt->func)[15] = printf_wchars;
 }
 
-int break_condition(t_pdata *print)
+static inline int		break_condition(t_pdata *print)
 {
-	if(print->ret_on_full && print->len >= print->data_size)
+	if (print->ret_on_full && print->len >= print->data_size)
 		return (0);
 	else
 		return (1);
 }
 
 /*
-	The following function is an extention if `printf_internal` as the 42 norm
-	require that the functions be at max 25 lines.
-
-	This function loop over the string containing the formats and treat as
-	requiored.
+**  The following function is an extention if `printf_internal` as the 42 norm
+**  require that the functions be at max 25 lines.
+**
+**  This function loop over the string containing the formats and treat as
+**  requiored.
 */
-static inline void		ft_printf_extra(va_list args, t_ppnt *flag_pnt, \
+
+static inline void		ft_printf_extra(va_list args, t_ppnt *flag_pnt,\
 		char *str, t_pdata *print)
 {
 	va_list args_cpy;
@@ -101,10 +104,9 @@ static inline void		ft_printf_extra(va_list args, t_ppnt *flag_pnt, \
 	}
 }
 
-
 /*
-	The following function parse the text and format it. This is the core of all
-	printf functions.
+**  The following function parse the text and format it. This is the core of all
+**  printf functions.
 */
 
 int						printf_internal(t_piopt opt,\
@@ -125,7 +127,7 @@ int						printf_internal(t_piopt opt,\
 	ft_printf_extra(args, &flag_pnt, str, print);
 	print->tend = flag_pnt.i;
 	data_man(print, (t_uchar *)str, print->tstart, print->tend);
-	if(print->fd > -1)
+	if (print->fd > -1)
 		write(print->fd, print->data, print->data_len);
 	len = print->len;
 	return (len);

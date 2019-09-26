@@ -14,10 +14,10 @@
 
 int	ft_dprintf(int fd, const char *format, ...)
 {
-	va_list args;
-	t_piopt opt;
-	t_uchar buff[P_BUFF_SIZE + 1];
-	int len;
+	va_list	args;
+	t_piopt	opt;
+	t_uchar	buff[P_BUFF_SIZE + 1];
+	int		len;
 
 	if (!format)
 		return (-1);
@@ -28,5 +28,5 @@ int	ft_dprintf(int fd, const char *format, ...)
 	va_start(args, format);
 	len = printf_internal(opt, format, args);
 	va_end(args);
-	return(len);
+	return (len);
 }

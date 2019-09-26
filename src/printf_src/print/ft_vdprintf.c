@@ -23,5 +23,5 @@ int	ft_vdprintf(int fd, const char *format, va_list ap)
 	opt.buff_size = P_BUFF_SIZE;
 	opt.fd = fd;
 	opt.ret_on_full = 0;
-	return(printf_internal(opt, format, ap));
+	return (printf_internal(opt, format, ap));
 }

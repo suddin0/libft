@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/26 21:01:45 by suddin            #+#    #+#             */
+/*   Updated: 2019/09/26 21:02:04 by suddin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_getopt.h"
 
-void set_optarg(char *val)
+void	set_optarg(char *val)
 {
 	t_optvar *optvar;
 
@@ -8,7 +20,7 @@ void set_optarg(char *val)
 	optvar->optarg = val;
 }
 
-void set_optind(int val)
+void	set_optind(int val)
 {
 	t_optvar *optvar;
 
@@ -16,7 +28,7 @@ void set_optind(int val)
 	optvar->optind = val;
 }
 
-void set_opterr(int val)
+void	set_opterr(int val)
 {
 	t_optvar *optvar;
 
@@ -24,7 +36,7 @@ void set_opterr(int val)
 	optvar->opterr = val;
 }
 
-void set_optopt(int val)
+void	set_optopt(int val)
 {
 	t_optvar *optvar;
 

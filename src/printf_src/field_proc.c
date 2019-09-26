@@ -12,24 +12,24 @@
 
 #include "ft_printf.h"
 
-/* *****************************************************************************
-	The function :
-	static char *str_fld_cus(t_pdata *print, t_pflag *fl, va_list ag, int i)
-
-	is a part of:
-	char *str_field_proc(t_pdata *print, t_pflag *flag, va_list args)
-
-	Separated because of lake of place as more then 25 lignes and 5 variables
-	are not allowed to use.
-
-	This function is used to retreat the string data and the data of width and
-	precision. It automat string retreaval by calling other functions so that
-	in the end programmer get the string from arguments and fill it with
-	necessery informations about width and prrecision, it also count the flag
-	depending on what type of argument the user want to read (custom or naturel)
-	This is not a generic function as it is only used to retreat string type
-	argument.
-***************************************************************************** */
+/*
+**  The function :
+**  static char *str_fld_cus(t_pdata *print, t_pflag *fl, va_list ag, int i)
+**
+**  is a part of:
+**  char *str_field_proc(t_pdata *print, t_pflag *flag, va_list args)
+**
+**  Separated because of lake of place as more then 25 lignes and 5 variables
+**  are not allowed to use.
+**
+**  This function is used to retreat the string data and the data of width and
+**  precision. It automat string retreaval by calling other functions so that
+**  in the end programmer get the string from arguments and fill it with
+**  necessery informations about width and prrecision, it also count the flag
+**  depending on what type of argument the user want to read (custom or naturel)
+**  This is not a generic function as it is only used to retreat string type
+**  argument.
+*/
 
 static void	init(int *i, int *read, int *array)
 {
@@ -69,11 +69,12 @@ static void	*fld_cus(t_pdata *print, t_pflag *fl, va_list ag,\
 }
 
 /*
-	Field process is a `generic` function whose only goal is to retreav `ANY`
-	type of data from the `Variadic` Argument list.
-
-	User MUST pass a function pointer that can retreav a particular type of data
+**  Field process is a `generic` function whose only goal is to retreav `ANY`
+**  type of data from the `Variadic` Argument list.
+**
+**  User MUST pass a function pointer that can retreav a particular type of data
 */
+
 void		*field_proc(t_pdata *print, t_pflag *flag, va_list args,\
 		void *func(int *read, int arg_num, t_pdata *print, va_list args))
 {

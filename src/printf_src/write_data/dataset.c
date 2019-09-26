@@ -14,7 +14,7 @@
 
 static void	p_data_flush(t_pdata *print)
 {
-	if(print->fd > -1)
+	if (print->fd > -1)
 		write(print->fd, print->data, print->data_len);
 	print->data[0] = '\0';
 	print->data_len = 0;
@@ -29,7 +29,7 @@ void		dataset(t_pdata *print, t_uchar c, size_t n)
 		return ;
 	while (i < n)
 	{
-		if(print->ret_on_full && print->len >= print->data_size)
+		if (print->ret_on_full && print->len >= print->data_size)
 			break ;
 		if (print->data_len == print->data_size)
 			p_data_flush(print);
