@@ -16,14 +16,17 @@
 	This function initialise the internal data structure on which the core
 	printf_internal depend to print and for other stuff.
 */
-static inline	void	data_init(t_pdata *print, t_ppnt *flag_pnt, int fd)
+static inline	void	data_init(t_pdata *print, t_ppnt *flag_pnt, t_piopt opt)
 {
+	print->data = opt.buff;
+	print->data_size = opt.buff_size;
 	print->len = 0;
 	print->data_len = 0;
 	print->flags = 0;
 	print->tstart = 0;
 	print->tend = 0;
-	print->fd = fd;
+	print->fd = opt.fd;
+	print->ret_on_full = opt.ret_on_full;
 	flag_pnt->i = 0;
 	flag_pnt->count = 0;
 	flag_pnt->flag1 = 0;
@@ -54,6 +57,14 @@ static inline	void	func_init(t_ppnt *flag_pnt)
 	(flag_pnt->func)[15] = printf_wchars;
 }
 
+int break_condition(t_pdata *print)
+{
+	if(print->ret_on_full && print->len >= print->data_size)
+		return (0);
+	else
+		return (1);
+}
+
 /*
 	The following function is an extention if `printf_internal` as the 42 norm
 	require that the functions be at max 25 lines.
@@ -66,7 +77,7 @@ static inline void		ft_printf_extra(va_list args, t_ppnt *flag_pnt, \
 {
 	va_list args_cpy;
 
-	while (str[flag_pnt->i])
+	while (str[flag_pnt->i] && break_condition(print))
 	{
 		if (flag_pnt->flag1 > 0)
 		{
@@ -96,8 +107,8 @@ static inline void		ft_printf_extra(va_list args, t_ppnt *flag_pnt, \
 	printf functions.
 */
 
-int						printf_internal(int fd, const char *restrict format,\
-		va_list args)
+int						printf_internal(t_piopt opt,\
+	const char *restrict format, va_list args)
 {
 	t_pdata	print[1];
 	t_ppnt	flag_pnt;
@@ -107,14 +118,15 @@ int						printf_internal(int fd, const char *restrict format,\
 	if (!format)
 		return (-1);
 	str = (char *)format;
-	data_init(print, &flag_pnt, fd);
+	data_init(print, &flag_pnt, opt);
 	func_init(&flag_pnt);
-	if (str[1] == 0 && str[0] == '%')
+	if (str[0] == '%' && str[1] == 0)
 		return (0);
 	ft_printf_extra(args, &flag_pnt, str, print);
 	print->tend = flag_pnt.i;
 	data_man(print, (t_uchar *)str, print->tstart, print->tend);
-	write(fd, print->data, print->data_len);
+	if(print->fd > -1)
+		write(print->fd, print->data, print->data_len);
 	len = print->len;
 	return (len);
 }

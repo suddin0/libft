@@ -12,12 +12,10 @@
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *restrict format, ...)
+int		ft_vprintf(const char *format, va_list ap)
 {
-	va_list args;
 	t_piopt opt;
 	t_uchar buff[P_BUFF_SIZE + 1];
-	int len;
 
 	if (!format)
 		return (-1);
@@ -25,8 +23,5 @@ int	ft_printf(const char *restrict format, ...)
 	opt.buff_size = P_BUFF_SIZE;
 	opt.fd = FT_STDOUT_FD;
 	opt.ret_on_full = 0;
-	va_start(args, format);
-	len = printf_internal(opt, format, args);
-	va_end(args);
-	return(len);
+	return(printf_internal(opt, format, ap));
 }

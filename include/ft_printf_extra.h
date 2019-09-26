@@ -40,16 +40,68 @@ typedef uintmax_t				t_ujint;
 typedef size_t					t_uzint;
 typedef ptrdiff_t				t_utint;
 
+/*
+	`s_printf_internal_option` is used in printf_internal. In this structure
+	you specify the how your printf behave.
+*/
+
+typedef struct	s_printf_internal_option
+{
+	t_uchar		*buff;
+	size_t		buff_size;
+	ssize_t		fd;
+	char		ret_on_full;
+}				t_piopt;
+
+/*
+	`s_pdata` is used to store printf internal data such as the buffer where
+	printf stores the data, the File Descriptor to write to, a pointer to where
+	printf is parsing.
+
+	data		:	The buffer where printf stores data to write later.
+
+	data_size	:	Value indicating how much data `data` (buffer) can contain.
+					In other word the `BUFF_SIZE`.
+
+	data_len	:	The count of data stored in the buffer (later used to
+					determin if buffer is full and initialized to `0`).
+
+	len			:	The count of `ALL` data stored in the buffer.
+
+	flags		:	Counts the last treated arguments from Variadict List so
+					later functions loop over the that point and continue
+					treating the next one.
+
+	tstart		:	Used to indicate the `store function` (data_man) where the
+					string starts at so store function treate the string from
+					there.
+
+	tend		:	Used to indicate the `store function` where the string
+					starts at so store function treate the string from there.
+
+	fd			:	The file descriptor where data will be writen,
+	ret_on_full :	Return if buffer is full (ccontains 0 OR 1)
+
+*/
+
 typedef struct	s_pdata
 {
-	t_uchar	data[P_BUFF_SIZE + 1];
-	size_t	data_len;
-	size_t	len;
+	// t_uchar	data[P_BUFF_SIZE + 1];
+	t_uchar	*data;
+	ssize_t	data_size;
+	ssize_t	data_len;
+	ssize_t	len;
 	int		flags;
 	long	tstart;
 	long	tend;
-	int		fd;
+	ssize_t	fd;
+	char	ret_on_full;
 }				t_pdata;
+
+/*
+	s_pflag is used to represent and store information about a particular format
+	that is parsing. It stores all possible aspect of any `format`
+*/
 
 typedef struct	s_pflag
 {
@@ -72,6 +124,15 @@ typedef struct	s_pflag
 	int		flag_sign;
 	int		nstart;
 }				t_pflag;
+
+/*
+	s_ppnt exists because of 42 norm as in some places we need more then 5
+	variables and more then 4 function parameters, the following structure helps
+	us overcome this obstavls.
+
+	It also contain a `function table` which contains all function used for
+	formating a strung.
+*/
 
 typedef struct	s_ppnt
 {

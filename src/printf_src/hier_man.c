@@ -10,7 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf.h"
+
+/* *****************************************************************************
+	This function helps us determinat in what order we should call the specific
+	function depending on the flags, read allready and the custom argument
+	values.
+
+	As we do not know how the user have wrote the flag so we need to find a way
+	to automate the system so that no metter in what order the user chose the
+	argument specified we shell allways get the right one wothout using multiple
+	copies of va_list, in other word we should think of a way so that we can
+	decide the right hierarchy of the flag depening on the values specified,
+	for	exemple: printf("%4$*.*1s", 22, "a", "b", "c");
+
+	In the above example the user chosed the fourth argument as (to print) as
+	string, the next argument to read as the width (*) and the first argument
+	as it's precision which is also the width in our case. So in this case we
+	have to make sure we get the right argument for the right use and. To know
+	more about the custom argument chosing, see the section [custom] of .info
+	file.
+
+	This is a generic function as it is not dependent on any specific case and
+	can be used in other cases.
+***************************************************************************** */
 
 static void	var_init(int *array, int *val_tmp, char flag)
 {
@@ -29,6 +52,9 @@ static void	var_init(int *array, int *val_tmp, char flag)
 	}
 }
 
+/*
+	The following function is a `` Hierarchy Manager
+*/
 void		hier_man(t_pdata *print, t_pflag *flag, int *array, int *val_tmp)
 {
 	var_init(array, val_tmp, 0);

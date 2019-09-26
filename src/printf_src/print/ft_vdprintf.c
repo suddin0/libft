@@ -12,12 +12,16 @@
 
 #include "ft_printf.h"
 
-int	ft_dprintf(int fd, const char *format, ...)
+int	ft_vdprintf(int fd, const char *format, va_list ap)
 {
-	va_list args;
+	t_piopt opt;
+	t_uchar buff[P_BUFF_SIZE + 1];
 
 	if (!format)
 		return (-1);
-	va_start(args, format);
-	return (printf_internal(fd, format, args));
+	opt.buff = str_to_pointer(buff);
+	opt.buff_size = P_BUFF_SIZE;
+	opt.fd = fd;
+	opt.ret_on_full = 0;
+	return(printf_internal(opt, format, ap));
 }

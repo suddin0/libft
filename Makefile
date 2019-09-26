@@ -139,14 +139,21 @@ LIBFT_SRC =		$(P_LIBFT_SRC)/ft_bzero.c							\
 				$(P_LIBFT_SRC)/ft_strchri.c
 
 PRINTF_SRC =	$(P_PRINTF_SRC)/print/ft_printf.c					\
-		  		$(P_PRINTF_SRC)/ft_dprintf.c						\
+		  		$(P_PRINTF_SRC)/print/ft_dprintf.c					\
+		  		$(P_PRINTF_SRC)/print/ft_sprintf.c					\
+		  		$(P_PRINTF_SRC)/print/ft_snprintf.c					\
+		  		$(P_PRINTF_SRC)/print/ft_vprintf.c					\
+		  		$(P_PRINTF_SRC)/print/ft_vdprintf.c					\
+		  		$(P_PRINTF_SRC)/print/ft_vsprintf.c					\
+		  		$(P_PRINTF_SRC)/print/ft_vsnprintf.c				\
 		  		$(P_PRINTF_SRC)/printf_internal.c					\
+		  		$(P_PRINTF_SRC)/str_to_pointer.c					\
 		  		$(P_PRINTF_SRC)/format_verif.c						\
 		  		$(P_PRINTF_SRC)/format_verif_extra.c				\
 		  		$(P_PRINTF_SRC)/is_flag.c							\
 		  		$(P_PRINTF_SRC)/flag_man.c							\
-		  		$(P_PRINTF_SRC)/data_man.c							\
-		  		$(P_PRINTF_SRC)/dataset.c							\
+		  		$(P_PRINTF_SRC)/write_data/data_man.c				\
+		  		$(P_PRINTF_SRC)/write_data/dataset.c				\
 		  		$(P_PRINTF_SRC)/simple_sort.c						\
 		  		$(P_PRINTF_SRC)/get_next_arg_int.c					\
 		  		$(P_PRINTF_SRC)/hier_man.c							\
