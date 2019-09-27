@@ -281,9 +281,37 @@ void			set_opterr(int val);
 void			set_optopt(int val);
 
 /*
+**  Extended functions for `getopt_internal_long` (because of 42 norm)
+**
+**  Of file `getopt_internal_long_ext1.c`
+*/
+
+char			*get_option(char *opt, int *arg);
+void			set_getopt_data_long(t_getopt_internal_args arg);
+void			init_ambig_set(t_ambig_set *ambig_set);
+int				opt_match(char *name, char *opt);
+void			ambig_set_realloc(t_ambig_set *ambig_set);
+
+/*
+**  Extended functions for `getopt_internal_long` (because of 42 norm)
+**
+**  Of file `getopt_internal_long_ext2.c`
+*/
+
+void			ambig_set_push(t_ambig_set *ambig_set, int val);
+int				ambig_set_add(t_ambig_set *ambig_set, const t_option *options,\
+					int val, int match_type);
+int				search_opt(t_ambig_set *ambig_set, const t_option *options,\
+						char *opt);
+void			free_opt_ambig_set(char **opt, t_ambig_set *set);
+void			manage_long_opt_arg(t_getopt_internal_args arg,\
+					t_ambig_set *ambig_set, int argument);
+
+/*
 ** Main generic function used by getopt*
 */
 
+char			*optchr(char *str, char c);
 int				getopt_internal(t_getopt_internal_args arg, int *longindex);
 int				getopt_internal_long(t_getopt_internal_args arg,\
 					t_getopt_data *getopt_data, int *longindex);
@@ -292,6 +320,7 @@ int				getopt_internal_short(t_getopt_internal_args arg,\
 /*
 **  // TODO: delete this one ??? WTF???
 */
+
 int				set_next_opt(t_getopt_internal_args int_arg, int argc,\
 					char **argv);
 void			argv_mutate(t_getopt_internal_args arg, int index);

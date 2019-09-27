@@ -190,21 +190,24 @@ PRINTF_SRC =	$(P_PRINTF_SRC)/print/ft_printf.c					\
 		  		$(P_PRINTF_SRC)/flags/wchar/w_to_char.c				\
 
 
-GETOPT_SRC =	$(P_GETOPT_SRC)/ft_getopt_long.c						\
-				$(P_GETOPT_SRC)/ft_getopt_long_only.c					\
-				$(P_GETOPT_SRC)/ft_getopt.c								\
-				$(P_GETOPT_SRC)/getopt_data.c							\
-				$(P_GETOPT_SRC)/optvar/get_optvar.c						\
-				$(P_GETOPT_SRC)/optvar/get.c							\
-				$(P_GETOPT_SRC)/optvar/set.c							\
-				$(P_GETOPT_SRC)/getopt_internal/getopt_internal.c		\
-				$(P_GETOPT_SRC)/getopt_internal/internal_args_init.c	\
-				$(P_GETOPT_SRC)/getopt_internal/getopt_internal_short.c	\
-				$(P_GETOPT_SRC)/getopt_internal/getopt_internal_long.c	\
-				$(P_GETOPT_SRC)/set_next_opt.c							\
-				$(P_GETOPT_SRC)/argv_mutate.c							\
-				$(P_GETOPT_SRC)/option_type.c							\
-				$(P_GETOPT_SRC)/getopt_end.c							\
+GETOPT_SRC =	$(P_GETOPT_SRC)/ft_getopt_long.c							\
+				$(P_GETOPT_SRC)/ft_getopt_long_only.c						\
+				$(P_GETOPT_SRC)/ft_getopt.c									\
+				$(P_GETOPT_SRC)/getopt_data.c								\
+				$(P_GETOPT_SRC)/optvar/get_optvar.c							\
+				$(P_GETOPT_SRC)/optvar/get.c								\
+				$(P_GETOPT_SRC)/optvar/set.c								\
+				$(P_GETOPT_SRC)/getopt_internal/optchr.c					\
+				$(P_GETOPT_SRC)/getopt_internal/getopt_internal.c			\
+				$(P_GETOPT_SRC)/getopt_internal/internal_args_init.c		\
+				$(P_GETOPT_SRC)/getopt_internal/getopt_internal_short.c		\
+				$(P_GETOPT_SRC)/getopt_internal/getopt_internal_long.c		\
+				$(P_GETOPT_SRC)/getopt_internal/getopt_internal_long_ext1.c	\
+				$(P_GETOPT_SRC)/getopt_internal/getopt_internal_long_ext2.c	\
+				$(P_GETOPT_SRC)/set_next_opt.c								\
+				$(P_GETOPT_SRC)/argv_mutate.c								\
+				$(P_GETOPT_SRC)/option_type.c								\
+				$(P_GETOPT_SRC)/getopt_end.c								\
 
 SRC =			$(LIBFT_SRC)	\
 				$(PRINTF_SRC)	\

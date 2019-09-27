@@ -16,7 +16,7 @@ char	**get_optarg(void)
 {
 	t_optvar *optvar;
 
-	optvar = get_optvar(void);
+	optvar = get_optvar();
 	return (&(optvar->optarg));
 }
 
@@ -24,7 +24,7 @@ int		*get_optind(void)
 {
 	t_optvar *optvar;
 
-	optvar = get_optvar(void);
+	optvar = get_optvar();
 	return (&(optvar->optind));
 }
 
@@ -32,7 +32,7 @@ int		*get_opterr(void)
 {
 	t_optvar *optvar;
 
-	optvar = get_optvar(void);
+	optvar = get_optvar();
 	return (&(optvar->opterr));
 }
 

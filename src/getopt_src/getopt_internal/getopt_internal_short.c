@@ -13,24 +13,6 @@
 #include "ft_getopt.h"
 
 /*
-** The following function searches a reference to the given char and retern
-** the address where the char was found. It was created to not use `ft_strchr`
-** because `ft_strchr` didn't seems to handle a `NULL` parameter as we need in
-** this situation.
-*/
-
-char	*optchr(char *str, char c)
-{
-	while (str && *str)
-	{
-		if (*str == c)
-			return (str);
-		str++;
-	}
-	return (NULL);
-}
-
-/*
 ** The following function manages internal variables so we can keep track of
 ** where we are now and depending on the situation where we should be for the
 ** next call thus changes the optind (option index) and nextchar's value
@@ -96,6 +78,35 @@ int		check_optarg(char *opt)
 }
 
 /*
+**  The following function is an extention of `short_arg`. It is created to
+**  respect the 42 norm of 25 lime function max.
+*/
+
+int		short_arg_ext(t_getopt_internal_args arg, t_getopt_data *d, int c)
+{
+	int error;
+
+	error = c;
+	if (arg.argv[d->optind][d->nextchar + 1])
+		d->optarg = &(arg.argv[d->optind][d->nextchar + 1]);
+	else if ((d->optind + 1) < arg.argc && arg.argv[d->optind])
+	{
+		argv_mutate(arg, d->optind);
+		d->optind++;
+		d->optarg = arg.argv[d->optind];
+	}
+	else
+	{
+		if (arg.print_error)
+			ft_dprintf(FT_STDERR_FD,\
+				"%s: option requires an argument -- '%c'\n", arg.argv[0], c);
+		d->optopt = c;
+		error = arg.colon ? OPT_ERROR_MISS_ARG : OPT_ERROR_DEFAULT;
+	}
+	return (error);
+}
+
+/*
 ** IF:
 **   If argument is optional
 ** ELSE IF:
@@ -120,24 +131,7 @@ int		short_arg(t_getopt_internal_args arg, t_getopt_data *d,\
 			d->optarg = &(arg.argv[d->optind][d->nextchar + 1]);
 	}
 	else if (argtype == OPT_ARG_MANDATORY)
-	{
-		if (arg.argv[d->optind][d->nextchar + 1])
-			d->optarg = &(arg.argv[d->optind][d->nextchar + 1]);
-		else if ((d->optind + 1) < arg.argc && arg.argv[d->optind])
-		{
-			argv_mutate(arg, d->optind);
-			d->optind++;
-			d->optarg = arg.argv[d->optind];
-		}
-		else
-		{
-			if (arg.print_error)
-				ft_dprintf(\
-	FT_STDERR_FD, "%s: option requires an argument -- '%c'\n", arg.argv[0], c);
-			d->optopt = c;
-			error = arg.colon ? OPT_ERROR_MISS_ARG : OPT_ERROR_DEFAULT;
-		}
-	}
+		error = short_arg_ext(arg, d, c);
 	argv_mutate(arg, d->optind);
 	d->optind++;
 	d->nextchar = 0;

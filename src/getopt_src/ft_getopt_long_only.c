@@ -1,10 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_getopt_long_only.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/27 18:29:08 by suddin            #+#    #+#             */
+/*   Updated: 2019/09/27 18:29:15 by suddin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_getopt.h"
 
-int ft_getopt_long_only(t_getopt_arg arg, const char *optstring, \
+/*
+** internal_args :	Arguments to pass to `getopt_internal`
+** optvar :`Globals`
+*/
+
+int	ft_getopt_long_only(t_getopt_arg arg, const char *optstring,\
 	const t_option *longopts, int *longindex)
 {
-	t_getopt_internal_args	internal_args;	/* Arguments to pass to `getopt_internal` */
-	t_optvar				*optvar;		/* `Globals` */
+	t_getopt_internal_args	internal_args;
+	t_optvar				*optvar;
 	t_getopt_data			*getopt_data;
 	int						result;
 

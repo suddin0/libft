@@ -1,9 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_getopt.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/27 18:31:18 by suddin            #+#    #+#             */
+/*   Updated: 2019/09/27 18:31:20 by suddin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_getopt.h"
 
-int ft_getopt(int argc, char * const argv[], const char *optstring)
+/*
+** internal_args :	Arguments to pass to `getopt_internal`
+** optvar :`Globals`
+*/
+
+int	ft_getopt(int argc, char *const argv[], const char *optstring)
 {
-	t_getopt_internal_args	internal_args;	/* Arguments to pass to `getopt_internal` */
-	t_optvar				*optvar;		/* `Globals` */
+	t_getopt_internal_args	internal_args;
+	t_optvar				*optvar;
 	t_getopt_data			*getopt_data;
 	int						result;
 	t_getopt_arg			arg;
