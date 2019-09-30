@@ -230,9 +230,9 @@ __START: os all
 
 all: $(NAME)
 
-$(NAME):  $(P_LIB) $(LIB_A)
+$(NAME):  $(LIB_A)
 
-$(LIB_A): $(OBJ) $(P_LIB)
+$(LIB_A): $(OBJ) $(P_LIB) $(HEADERS)
 	@ar rc $(LIB_A) $(OBJ)
 	@printf "ar rc $(LIB_A) *.o\n"
 	@ranlib $(LIB_A)
