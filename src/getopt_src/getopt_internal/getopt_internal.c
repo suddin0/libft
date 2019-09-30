@@ -32,7 +32,7 @@ inline static int	getopt_internal_extra(t_getopt_internal_args arg,\
 	getopt_data->optarg = NULL;
 	opt_type = set_next_opt(arg, arg.argc, arg.argv);
 	if (opt_type == OPT_TYPE_ERROR || opt_type == OPT_TYPE_END)
-		return (getopt_end(arg));
+		return (getopt_end(arg, opt_type));
 	else if (opt_type == OPT_TYPE_ARG)
 		return (opt_type);
 	else if (opt_type == OPT_TYPE_SHORT ||\
@@ -78,7 +78,7 @@ int					getopt_internal(t_getopt_internal_args arg, int *longindex)
 	getopt_data = get_getopt_data();
 	getopt_data->optarg = NULL;
 	if (arg.argc < 1 || getopt_data->optind >= arg.argc)
-		return (getopt_end(arg));
+		return (getopt_end(arg, 0));
 	if (getopt_data->nextchar == 0)
 	{
 		ret = getopt_internal_extra(arg, longindex);
@@ -87,5 +87,5 @@ int					getopt_internal(t_getopt_internal_args arg, int *longindex)
 	}
 	else
 		return (getopt_internal_short(arg, getopt_data));
-	return (getopt_end(arg));
+	return (getopt_end(arg, 0));
 }

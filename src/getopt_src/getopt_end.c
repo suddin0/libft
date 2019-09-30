@@ -12,15 +12,14 @@
 
 #include "ft_getopt.h"
 
-int	getopt_end(t_getopt_internal_args arg)
+int	getopt_end(t_getopt_internal_args arg, int opt_type)
 {
 	if (arg.opt_treat == OPT_TREAT_MUTATE)
 		arg.getopt_data->optind = arg.getopt_data->last_optind;
 	else if (arg.opt_treat == OPT_TREAT_POSIXLY_CORRECT)
 	{
-		printf("CAME HERE %d, %d\n", arg.getopt_data->optind, arg.getopt_data->last_optind);
-
+		if(opt_type == OPT_TYPE_END)
+			arg.getopt_data->optind++;
 	}
-		// arg.getopt_data->optind;
 	return (GETOPT_END);
 }

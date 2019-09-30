@@ -328,6 +328,6 @@ int				option_type(char *opt);
 void			internal_args_init(t_getopt_internal_args *internal_arg,\
 					t_getopt_arg arg, const char *optstring,\
 					const t_option *longopts);
-int				getopt_end(t_getopt_internal_args arg);
+int				getopt_end(t_getopt_internal_args arg, int opt_type);
 
 #endif

@@ -57,7 +57,7 @@ int			set_next_opt(t_getopt_internal_args int_arg, int argc, char **argv)
 		if (opt_type == OPT_TYPE_END)
 		{
 			argv_mutate(int_arg, int_arg.getopt_data->optind);
-			return (GETOPT_END);
+			return (OPT_TYPE_END);
 		}
 		else if (opt_type != OPT_TYPE_NONE)
 			return (opt_type);
