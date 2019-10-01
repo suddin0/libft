@@ -220,19 +220,18 @@ HEADERS =		$(INCLUDE)/ft_printf.h			\
 
 ## Objects without path names
 OBJ		:=	$(addsuffix .o, $(basename $(SRC)))
-PRINTF_OBJ		:=	$(notdir $(SRC:.c=.o))
 
 ## Objects with their path name
 OBJ_P	=	$(addprefix $(P_OBJ)/,$(OBJ))	## addprefix add the
 											## path name to the files...
 ## Start making here
-__START: os all
+__START: all
 
 all: $(NAME)
 
-$(NAME):  $(LIB_A)
+$(NAME): $(P_LIB) $(LIB_A)
 
-$(LIB_A): $(OBJ) $(P_LIB) $(HEADERS)
+$(LIB_A): $(OBJ) $(HEADERS)
 	@ar rc $(LIB_A) $(OBJ)
 	@printf "ar rc $(LIB_A) *.o\n"
 	@ranlib $(LIB_A)
