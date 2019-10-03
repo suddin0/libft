@@ -62,6 +62,7 @@ LIB_A			?=	$(P_LIB)/libft.a
 P_PRINTF_SRC	= src/printf_src
 P_LIBFT_SRC		= src/libft_src
 P_GETOPT_SRC	= src/getopt_src
+P_STRING_SRC	= src/string_src
 
 
 ## sources and objects where path names are removed.
@@ -209,14 +210,21 @@ GETOPT_SRC =	$(P_GETOPT_SRC)/ft_getopt_long.c							\
 				$(P_GETOPT_SRC)/option_type.c								\
 				$(P_GETOPT_SRC)/getopt_end.c								\
 
+
+STRING_SRC =	$(P_STRING_SRC)/str_new.c					\
+				$(P_STRING_SRC)/internal_string_pack_new.c	\
+				$(P_STRING_SRC)/str_char_append.c			\
+
 SRC =			$(LIBFT_SRC)	\
 				$(PRINTF_SRC)	\
 				$(GETOPT_SRC)	\
+				$(STRING_SRC)	\
 
 HEADERS =		$(INCLUDE)/ft_printf.h			\
 				$(INCLUDE)/ft_printf_extra.h	\
 				$(INCLUDE)/libft.h				\
 				$(INCLUDE)/ft_getopt.h			\
+				$(INCLUDE)/ft_string.h			\
 
 ## Objects without path names
 OBJ		:=	$(addsuffix .o, $(basename $(SRC)))
