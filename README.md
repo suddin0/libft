@@ -1,88 +1,45 @@
+![Project header logo](.misc/images/libft_header.png)
 
-### Libft is the Clib for '42'
-#### Ft_printf was added in the new update
+## Description
 
-> Ft_printf is not part of the libft.h and `make` wont compile `ft_printf` library by default
-> To `make` the `ft_printf` library do a `make ft_printf` this will compile the `libft`
-> with ***-O3*** flag and under `pf_libft.a` name and then compile `ft_printf` with ***-Ofas***  flag
-> for optimisation purposes.
-> In this update every library files are put to `lib` directory if you want it to put to a custom
-> directory just `make` it as such `make P_LIB=<custom path> ft_printf` this will create the
-> liibrary to the desired path.
+**Libft** is a [42](https://en.wikipedia.org/wiki/42_(school)) project. The goal of this project is to create a [static library](https://en.wikipedia.org/wiki/Static_library) (c library) that will be used during the [42](https://en.wikipedia.org/wiki/42_(school)) course. **Libft** is meant to be similar to [libc](https://en.wikipedia.org/wiki/C_standard_library) library, where many different type of function are included to help with other `projects`.  To know more about `libft` **`api`** refer to the [wiki](https://github.com/suddin0/libft/wiki) section.
 
+## Build the library
 
+**Libft** is a static `C` library. A [`makefile`](https://fr.wikipedia.org/wiki/GNU_Make) is included to build the project. The follwing recipe can be used:
 
-| LibFT Files |
-|---------|
-| auteur |
-| ft_abs.c |
-| ft_atoi.c |
-| ft_bzero.c |
-| ft_chrindex.c |
-| ft_chrindexi.c |
-| ft_isalnum.c |
-| ft_isalpha.c |
-| ft_isascii.c |
-| ft_isdigit.c |
-| ft_isprint.c |
-| ft_itoa.c |
-| ft_lstadd.c |
-| ft_lstdel.c |
-| ft_lstdelone.c |
-| ft_lstiter.c |
-| ft_lstmap.c |
-| ft_lstnew.c |
-| ft_memalloc.c |
-| ft_memccpy.c |
-| ft_memchr.c |
-| ft_memcmp.c |
-| ft_memcpy.c |
-| ft_memdel.c |
-| ft_memmove.c |
-| ft_memset.c |
-| ft_putchar.c |
-| ft_putchar_fd.c |
-| ft_putendl.c |
-| ft_putendl_fd.c |
-| ft_putnbr.c |
-| ft_putnbrendl.c |
-| ft_putnbr_fd.c |
-| ft_putstr.c |
-| ft_putstr_fd.c |
-| ft_sqrt.c |
-| ft_strcat.c |
-| ft_strchr.c |
-| ft_strchri.c |
-| ft_strclr.c |
-| ft_strcmp.c |
-| ft_strcpy.c |
-| ft_strdel.c |
-| ft_strdup.c |
-| ft_strequ.c |
-| ft_striter.c |
-| ft_striteri.c |
-| ft_strjoin.c |
-| ft_strjoini.c |
-| ft_strlcat.c |
-| ft_strlen.c |
-| ft_strmap.c |
-| ft_strmapi.c |
-| ft_strncat.c |
-| ft_strncmp.c |
-| ft_strncpy.c |
-| ft_strnequ.c |
-| ft_strnew.c |
-| ft_strnstr.c |
-| ft_strrchr.c |
-| ft_strrem.c |
-| ft_strresize.c |
-| ft_strrev.c |
-| ft_strsplit.c |
-| ft_strstr.c |
-| ft_strsub.c |
-| ft_strtrim.c |
-| ft_tolower.c |
-| ft_toupper.c |
-| libft.a |
-| libft.h |
-| Makefile |
+|recipe | Description|
+|--------|-----------|
+|all| Creates the library |
+|clean| Remove all generated [object](https://en.wikipedia.org/wiki/Object_file) files|
+|fclean| Calls the `clean` recipe and remove the [library]() file|
+|re | Calls the `fclean` recipe and `all` recipe (recompile the library|
+
+Once the compilation is finished a file called `libft.a` will be created in the directory `lib`
+
+## Header files.
+
+Current version of `libft` contains function from following libraries and each of them has their own header (`.h`) files:
+
+|Library name| header file| status|
+|--------------|-----|------------|
+|`libft`| **libft.h**| finished |
+|[printf](https://en.wikipedia.org/wiki/Printf_format_string)| **ft_printf.h**| finished|
+|[getopt](https://en.wikipedia.org/wiki/Getopt)| **ft_getopt.h** | unfinished |
+|`string` (not the standard ***strings.h***)|**ft_string.h** | unfinished|
+
+## Including `libft` to a project
+
+The library (`.a`) file is created in **`lib/`** directory and the header (`.h`) files can be found in the `include/` directory.
+
+Assuming you have cloned the project (libft) to the root directory of your project. To use the libft on the project you would use as following
+
+```bash
+## before you do the following you must create the `libft.a`
+## file in the libft project
+
+cc -I libft/include -L libft/lib -lft <your source / object files> -o <output file>
+```
+
+## More information.
+### For more information about about all the libraries and their api refer to the  [wiki](https://github.com/suddin0/libft/wiki) section.
