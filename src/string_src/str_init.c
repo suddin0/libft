@@ -5,7 +5,7 @@ int	str_init(t_string *string)
 	t_internal_string_pack *str_pack;
 
 	if(!string)
-		return ;
+		return (-1);
 
 	str_pack = internal_string_pack_new();
 	if(!str_pack)
@@ -15,7 +15,7 @@ int	str_init(t_string *string)
 	string->cur = 0;
 	string->len = 0;
 
-	string->string = str_pack;
-	string->last_node = str_pack;
+	// string->string = str_pack;
+	// string->last_node = str_pack;
 	return(0);
 }

@@ -1,0 +1,9 @@
+.DS*
+*.o
+*.a
+*.dSYM
+*.swp
+*.swo
+*.swn
+*.gch
+*.test
