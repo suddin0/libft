@@ -225,10 +225,10 @@ GETOPT_SRC =	$(P_GETOPT_SRC)/ft_getopt_long.c							\
 				$(P_GETOPT_SRC)/getopt_end.c								\
 
 
-STRING_SRC =	$(P_STRING_SRC)/str_new.c					\
-				$(P_STRING_SRC)/internal_string_pack_new.c	\
-				$(P_STRING_SRC)/str_char_append.c			\
-				$(P_STRING_SRC)/str_init.c					\
+STRING_SRC =	$(P_STRING_SRC)/str_new.c				\
+				$(P_STRING_SRC)/priv_string_pack_new.c	\
+				$(P_STRING_SRC)/priv_str_init.c			\
+				$(P_STRING_SRC)/str_add.c				\
 
 SRC =			$(LIBFT_SRC)	\
 				$(PRINTF_SRC)	\

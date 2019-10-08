@@ -7,13 +7,12 @@ t_string			*str_new(const unsigned char *str)
 	string = ft_memalloc(sizeof(t_string));
 	if(!string)
 		return (NULL);
-	if(str_init(string))
+	if(priv_str_init(string))
 	{
 		ft_memdel((void **)&string);
 		return NULL;
 	}
-	(void) str;
-	/* If str is pesent then add the str in t_string */
-
+	if(str)
+		str_add(string, str);
 	return (string);
 }
