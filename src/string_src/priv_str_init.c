@@ -1,21 +1,28 @@
 #include "ft_string.h"
 
+static void priv_init_data(t_priv_data *data)
+{
+	data->data = NULL;
+	data->data_len = 0;
+	data->data_size = 0;
+}
+
+static void priv_init_index(t_priv_index *index)
+{
+	index->index = 0;
+	index->index_moved = 0;
+}
+
 int	priv_str_init(t_string *string)
 {
-	t_priv_string_pack *str_pack;
-
 	if(!string)
 		return (-1);
 
-	str_pack = priv_string_pack_new();
-	if(!str_pack)
-		return (-1);
-	// string->data = NULL;
-	// string->data_len = 0;
-	// string->cur = 0;
+	priv_init_data(&(string->data));
+	priv_init_index(&(string->index));
 	string->len = 0;
-
-	// string->string = str_pack;
-	// string->last_node = str_pack;
+	string->node_start = NULL;
+	string->node_cur = NULL;
+	string->node_last = NULL;
 	return(0);
 }

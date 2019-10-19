@@ -6,7 +6,7 @@
 /*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/16 23:08:34 by suddin            #+#    #+#             */
-/*   Updated: 2017/12/04 02:53:30 by suddin           ###   ########.fr       */
+/*   Updated: 2019/10/16 04:53:06 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,13 @@
 #  define FT_DOUBLE_SIZE_BIT		64
 #  define FT_LONG_DOUBLE_SIZE_BIT	128
 
+/*
+*  `error` : a compiler macro that stops the compilation (here we stop the
+*  compilation conditionally.)
+*/
+
 # else
-#  error "Environment not 32 or 64-bit."
+#  error "Architecture is not 32 bit nor 64 bit."
 # endif
 
 # define FT_STDIN_FD				0

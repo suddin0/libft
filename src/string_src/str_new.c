@@ -1,6 +1,6 @@
 #include "ft_string.h"
 
-t_string			*str_new(const unsigned char *str)
+t_string			*str_new(const char *str)
 {
 	t_string *string;
 
