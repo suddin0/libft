@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 20:51:35 by suddin            #+#    #+#             */
-/*   Updated: 2019/09/26 20:51:37 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:21:33 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_internal_func.h"
 
 int		ft_sprintf(char *str, const char *format, ...)
 {

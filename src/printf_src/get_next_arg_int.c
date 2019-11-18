@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_arg_int.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 21:05:08 by suddin            #+#    #+#             */
-/*   Updated: 2018/02/01 10:04:05 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:22:30 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf_internal_func.h"
 
 int	get_next_int(int *read, int arg_num, t_pdata *print, va_list args)
 {

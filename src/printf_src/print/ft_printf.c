@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/07 00:09:44 by suddin            #+#    #+#             */
-/*   Updated: 2019/08/07 00:09:59 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:21:27 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_internal_func.h"
 
 int	ft_printf(const char *restrict format, ...)
 {

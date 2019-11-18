@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   printf_base_extra.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:45:02 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/27 13:09:00 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:18:47 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_internal_func.h"
 #include "libft.h"
 
 int		get_num_base(char c)

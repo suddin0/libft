@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   verif_l3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 07:44:31 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/26 08:45:30 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:21:21 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf_internal_func.h"
 
 static inline void	width_n_precis(t_pflag *flag, int arg_n, int *prec, int *wi)
 {

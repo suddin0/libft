@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   getopt_internal.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/27 20:36:34 by suddin            #+#    #+#             */
-/*   Updated: 2019/09/27 20:45:18 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:32:23 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_getopt.h"
-
-#include <stdio.h>
 
 /*
 ** The following function is an extention of `getopt_internal` as it surpasses

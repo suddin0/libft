@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   format_verif.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 20:52:02 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/26 09:59:13 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:22:20 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_internal_func.h"
 #include "libft.h"
 
 static int	check_flag_arg(t_pflag *flag, char *str, int start, int end)

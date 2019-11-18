@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   flag_man.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 08:32:28 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/26 09:52:36 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:22:06 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf_internal_func.h"
 
 static void	flag_init(t_pflag *flag)
 {

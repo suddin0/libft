@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   printf_int_extra.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 14:23:08 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/27 14:46:32 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:19:27 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_internal_func.h"
 #include "libft.h"
 
 int	cus_iintlen(long long n, int comma)

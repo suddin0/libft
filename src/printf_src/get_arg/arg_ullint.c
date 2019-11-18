@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   arg_ullint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 07:20:16 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/25 07:22:12 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:20:48 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf_internal_func.h"
 
 t_ullint	*arg_ullint(int *read, int arg_num, t_pdata *print, va_list args)
 {

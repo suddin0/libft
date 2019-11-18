@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   verif_f2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 07:38:10 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/26 07:18:48 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:21:07 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf_internal_func.h"
 
 static inline int	f2_a(t_pflag *flag, int *val, int read_flag)
 {

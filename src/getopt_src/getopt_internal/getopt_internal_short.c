@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   getopt_internal_short.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 21:18:58 by suddin            #+#    #+#             */
-/*   Updated: 2019/09/26 21:23:33 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:29:36 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_getopt.h"
+#include "ft_printf.h"
+#include "libft.h"
 
 /*
 ** The following function manages internal variables so we can keep track of

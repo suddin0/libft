@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   arg_wcharc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 07:23:17 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/25 07:24:08 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:20:54 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf_internal_func.h"
 
 wchar_t	*arg_wcharc(int *read, int arg_num, t_pdata *print, va_list args)
 {

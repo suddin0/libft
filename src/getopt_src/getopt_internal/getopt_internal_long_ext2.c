@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   getopt_internal_long_ext2.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/27 22:08:23 by suddin            #+#    #+#             */
-/*   Updated: 2019/09/27 22:08:25 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:30:56 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_getopt.h"
+#include "libft.h"
 
 void	ambig_set_push(t_ambig_set *ambig_set, int val)
 {

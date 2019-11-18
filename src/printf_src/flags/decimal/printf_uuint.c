@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   printf_uuint.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 06:22:26 by suddin            #+#    #+#             */
-/*   Updated: 2018/02/01 08:39:15 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:19:49 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_internal_func.h"
 #include "libft.h"
 
 static void	set_num(t_pdata *print, t_pflag *flags, t_ullint dec)

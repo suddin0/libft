@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   printf_number.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 07:08:02 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/25 07:12:11 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:19:55 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf_internal_func.h"
 
 void	printf_number(t_pdata *print, t_pflag *flags, va_list args)
 {

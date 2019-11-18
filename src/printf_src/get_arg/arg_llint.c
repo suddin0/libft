@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   arg_llint.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 07:17:09 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/25 07:18:09 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:20:37 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf_internal_func.h"
 
 t_llint	*arg_llint(int *read, int arg_num, t_pdata *print, va_list args)
 {

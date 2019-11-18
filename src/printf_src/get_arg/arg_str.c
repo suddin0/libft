@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   arg_str.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 07:19:22 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/25 07:20:00 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:20:41 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf_internal_func.h"
 
 char	*arg_str(int *read, int arg_num, t_pdata *print, va_list args)
 {

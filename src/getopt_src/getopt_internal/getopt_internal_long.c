@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   getopt_internal_long.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/27 21:13:09 by suddin            #+#    #+#             */
-/*   Updated: 2019/09/27 21:26:44 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:31:22 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_getopt.h"
-#include <stdio.h>
+#include "ft_printf.h"
+#include "libft.h"
 
 static int	longopt_err(t_getopt_internal_args arg, char *argv,\
 	const char *opt, int err)

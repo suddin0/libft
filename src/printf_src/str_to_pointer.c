@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   str_to_pointer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 20:52:52 by suddin            #+#    #+#             */
-/*   Updated: 2019/09/26 20:53:45 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:22:53 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_internal_func.h"
 
 t_uchar	*str_to_pointer(t_uchar *str)
 {

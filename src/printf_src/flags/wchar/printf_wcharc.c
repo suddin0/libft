@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   printf_wcharc.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 08:23:12 by suddin            #+#    #+#             */
-/*   Updated: 2018/02/01 09:06:52 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:20:26 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf_internal_func.h"
 
 static void	w_to_charc(wchar_t c, t_pdata *print)
 {

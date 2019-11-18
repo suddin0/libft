@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vsprintf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 20:52:24 by suddin            #+#    #+#             */
-/*   Updated: 2019/09/26 20:52:26 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:21:47 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_internal_func.h"
 
 int		ft_vsprintf(char *str, const char *format, va_list ap)
 {

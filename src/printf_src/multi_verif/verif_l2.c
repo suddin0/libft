@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   verif_l2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 07:43:18 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/26 08:32:16 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:21:18 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf_internal_func.h"
 
 static inline int	l2_a(t_pflag *flag, int *val, int read_flag, int32_t *f_val)
 {

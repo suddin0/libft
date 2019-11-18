@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getopt.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 19:17:48 by suddin            #+#    #+#             */
-/*   Updated: 2019/09/26 19:17:50 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:31:33 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_GETOPT_H
 # define FT_GETOPT_H
-
-# include "libft.h"
-# include "ft_printf.h"
 
 # define OPTIND 					0
 # define OPTERR 					1

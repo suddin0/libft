@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   hier_man.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 08:56:59 by suddin            #+#    #+#             */
-/*   Updated: 2018/04/27 08:01:46 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:22:35 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_internal_func.h"
 
 /*
 **  This function helps us determinat in what order we should call the specific

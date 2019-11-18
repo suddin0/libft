@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   printf_string.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 04:22:39 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/27 23:45:38 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:20:22 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_internal_func.h"
 #include "libft.h"
 
 static void	str_data_process(t_pdata *print, t_pflag *flags, char *str)

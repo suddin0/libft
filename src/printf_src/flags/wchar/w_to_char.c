@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_wchars.c                                    :+:      :+:    :+:   */
+/*   w_to_char.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 07:36:15 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/23 08:14:34 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:20:34 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf_internal_func.h"
 
 void	w_to_char(wchar_t c, unsigned char *s, int *i)
 {

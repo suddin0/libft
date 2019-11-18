@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   field_proc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 09:02:42 by suddin            #+#    #+#             */
-/*   Updated: 2018/04/27 08:03:27 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:22:02 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_internal_func.h"
 
 /*
 **  The function :

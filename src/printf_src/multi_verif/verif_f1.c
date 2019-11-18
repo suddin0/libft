@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   verif_f1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suddin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: suddin <suddin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 07:30:31 by suddin            #+#    #+#             */
-/*   Updated: 2018/01/26 06:35:36 by suddin           ###   ########.fr       */
+/*   Updated: 2019/11/19 00:21:04 by suddin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf_internal_func.h"
 
 static inline void	is_width_or_precis(t_pflag *flag, int *read)
 {

@@ -213,10 +213,11 @@ SRC =			$(LIBFT_SRC)	\
 				$(PRINTF_SRC)	\
 				$(GETOPT_SRC)	\
 
-HEADERS =		$(INCLUDE)/ft_printf.h			\
-				$(INCLUDE)/ft_printf_extra.h	\
-				$(INCLUDE)/libft.h				\
-				$(INCLUDE)/ft_getopt.h			\
+HEADERS =		$(INCLUDE)/ft_printf.h					\
+				$(INCLUDE)/ft_printf_extra.h			\
+				$(INCLUDE)/ft_printf_internal_func.h	\
+				$(INCLUDE)/libft.h						\
+				$(INCLUDE)/ft_getopt.h					\
 
 ## Objects without path names
 OBJ		:=	$(addsuffix .o, $(basename $(SRC)))
