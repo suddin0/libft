@@ -1,0 +1,53 @@
+###############################################################################                            
+##                                                                           ##
+##  This file contains miscelinious valiables to make life easier            ##
+##  `W` indicate `Wild` as in wildcard                                       ##
+##                                                                           ##
+##                                                                           ##
+###############################################################################
+
+.SILENT : os $(MY_OS)
+.IGNORE : $(OS_CHK)
+
+## This get all the files with the `.c` extention for the `P_SRC` path.
+## This was ment to replace a `*` and do the same job and get all
+## files with `.c` extention from the src directory and it's subdirectory
+
+SRC_W		?=	$(shell find $(P_SRC) | grep \\.c$)
+
+## Does the same job but for object files from `P_OBJ` path
+
+OBJ_W		?=	$(shell find $(P_OBJ) | grep \\.o$)
+
+## This will get the information about the operating system
+## so if the previous compilation differ or if some other rules
+## ware set then it will do accordingly
+
+MY_OS		:=	$(shell uname -ms)
+
+## If the file os do not exists then wont be read
+## else it will get the content of the file.
+## This prevent showing error messages
+
+OS_CHK		:=	$(shell /bin/sh -c "[ ! -f $(P_MISC)/os ] || cat $(P_MISC)/os")
+
+
+## other information and functionality
+SLEEP	?=	0.10	## This value is used to sleep
+					## the shell for a certain second.
+					## For decoration purpose
+
+## E stands dor escape code
+E_CLEAR_LINE = \r\033[K
+
+## The following variables are default if undifined
+
+
+os:
+ifeq ($(MY_OS),$(OS_CHK))
+	@touch $(P_MISC)/os
+else
+	echo $(MY_OS) > $(P_MISC)/os
+	make os_dep --no-print-directory
+	
+endif

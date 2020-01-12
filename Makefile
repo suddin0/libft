@@ -42,8 +42,7 @@ PROJECT	=	LIBFT
 CC		?=	clang 		## default compiler is clang
 
 
-CFLAGS					?=	-Werror -Wall -Wextra
-
+CFLAGS				:=	-Werror -Wall -Wextra
 ## some useful `flags` for memory verifications
 ##
 ## -O1 -g -fsanitize=address	\
@@ -57,11 +56,27 @@ MAIN	?=	main.c
 NAME	?=	libft 		## The name of your binary
 
 #The name of the library you want to make
-LIB_A			?=	$(P_LIB)/libft.a
+LIB_A			:=	$(P_LIB)/libft.a
+
+## If we want to create a shared library then add the `SHARED=1` argument to make
+ifdef SHARED
+	LIB_A := $(P_LIB)/libft.so
+endif
+
+## If we want to debug then add the `SHARED=1` argument to make
+ifdef DEBUG
+	CFLAGS := $(CFLAGS)  -g
+endif
+
+## If we want to compile with sanitizer then add the `SHARED=1` argument to make
+ifdef SAN
+	CFLAGS := $(CFLAGS) -fsanitize=address -fno-omit-frame-pointer -fsanitize-address-use-after-scope
+endif
 
 P_PRINTF_SRC	= src/printf_src
 P_LIBFT_SRC		= src/libft_src
 P_GETOPT_SRC	= src/getopt_src
+P_STRING_SRC	= src/string_src
 
 
 ## sources and objects where path names are removed.
@@ -209,15 +224,16 @@ GETOPT_SRC =	$(P_GETOPT_SRC)/ft_getopt_long.c							\
 				$(P_GETOPT_SRC)/option_type.c								\
 				$(P_GETOPT_SRC)/getopt_end.c								\
 
+
 SRC =			$(LIBFT_SRC)	\
 				$(PRINTF_SRC)	\
 				$(GETOPT_SRC)	\
 
-HEADERS =		$(INCLUDE)/ft_printf.h					\
-				$(INCLUDE)/ft_printf_extra.h			\
-				$(INCLUDE)/ft_printf_internal_func.h	\
-				$(INCLUDE)/libft.h						\
-				$(INCLUDE)/ft_getopt.h					\
+HEADERS =		$(INCLUDE)/ft_printf.h			\
+				$(INCLUDE)/ft_printf_extra.h	\
+				$(INCLUDE)/libft.h				\
+				$(INCLUDE)/ft_getopt.h			\
+				$(INCLUDE)/ft_string.h			\
 
 ## Objects without path names
 OBJ		:=	$(addsuffix .o, $(basename $(SRC)))
@@ -225,6 +241,7 @@ OBJ		:=	$(addsuffix .o, $(basename $(SRC)))
 ## Objects with their path name
 OBJ_P	=	$(addprefix $(P_OBJ)/,$(OBJ))	## addprefix add the
 											## path name to the files...
+
 ## Start making here
 __START: all
 
@@ -233,10 +250,21 @@ all: $(NAME)
 $(NAME): $(P_LIB) $(LIB_A)
 
 $(LIB_A): $(OBJ) $(HEADERS)
+## Create shared library
+ifdef SHARED
+	@$(CC) $(CFLAGS) -shared -I $(INCLUDE) $(OBJ) -o $(LIB_A)
+	@printf "$(CC) $(CFLAGS) -shared -I [include].h [obj].o -o $(LIB_A)\n\n"
+	@printf "Shared object (dynamic library) is created\n"
+	@printf "You can use LD_LIBRARY_PATH or rpath to use the shared object (dynamic library)\n"
+	@printf "LD_LIBRARY_PATH :  export LD_LIBRARY_PATH=$(P_ROOT)/lib:$LD_LIBRARY_PATH\n"
+else
+## Create static library
 	@ar rc $(LIB_A) $(OBJ)
 	@printf "ar rc $(LIB_A) *.o\n"
 	@ranlib $(LIB_A)
 	@printf "ranlib $(LIB_A)\n"
+endif
+
 
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -I $(INCLUDE) -c -o  $@ $<
