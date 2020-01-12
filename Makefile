@@ -151,7 +151,9 @@ LIBFT_SRC =		$(P_LIBFT_SRC)/ft_bzero.c							\
 				$(P_LIBFT_SRC)/ft_chrindex.c						\
 				$(P_LIBFT_SRC)/ft_chrindexi.c						\
 				$(P_LIBFT_SRC)/ft_strjoini.c						\
-				$(P_LIBFT_SRC)/ft_strchri.c
+				$(P_LIBFT_SRC)/ft_strchri.c							\
+				$(P_LIBFT_SRC)/program_name.c						\
+
 
 PRINTF_SRC =	$(P_PRINTF_SRC)/print/ft_printf.c					\
 		  		$(P_PRINTF_SRC)/print/ft_dprintf.c					\
@@ -233,7 +235,6 @@ HEADERS =		$(INCLUDE)/ft_printf.h			\
 				$(INCLUDE)/ft_printf_extra.h	\
 				$(INCLUDE)/libft.h				\
 				$(INCLUDE)/ft_getopt.h			\
-				$(INCLUDE)/ft_string.h			\
 
 ## Objects without path names
 OBJ		:=	$(addsuffix .o, $(basename $(SRC)))

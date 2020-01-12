@@ -94,6 +94,13 @@
 # define FT_LONG_MAX_LEN			19
 # define FT_LONG_MIN_LEN			11
 
+/**
+* The following define is used to set the mac size of a program name.
+* Do not set it to a too short number.
+**/
+
+# define MAX_PROGRAM_NAME			1024
+
 typedef struct	s_list
 {
 	void			*content;
@@ -173,4 +180,8 @@ int				ft_chrindex(char *str, char c);
 int				ft_chrindexi(char *str, char c, int len);
 char			*ft_strjoini(char const *s1, char const *s2, size_t len);
 char			*ft_strchri(const char *s, int c, unsigned int len);
+
+int				set_program_name(char *n_name);
+const char		*get_program_name();
+
 #endif
